@@ -5,6 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript">
+function showCategory(e){
+	let cts=e.currentTarget.childNodes;
+	cts[3].style.display="";
+	e.currentTarget.style.backgroundColor="#f0f8ff";
+	e.currentTarget.addEventListener('mouseout',removeCategory);
+}
+function removeCategory(e){
+	let cts=e.currentTarget.childNodes;
+	cts[3].style.display="none";
+	e.currentTarget.style.backgroundColor="#ffffff";
+}
+</script>
 <title>3조문고</title>
 </head>
 <body>

@@ -182,14 +182,14 @@ main {
 
 #audio-main .audio-container .main-right {
 	width: 200px;
+	border: solid 1px #dddddf;
 }
 
 
 #audio-main .audio-container .main-right .main-category {
 	background-color: #ffffff;
-	border: solid 1px #dddddf;	
-
-	padding: 24px 22px 22px;
+	transition: all 0.3s;
+	padding: 20px 22px 10px;
 }
 
 #audio-main .audio-container .main-right .main-category-title-wrap {

@@ -6,56 +6,116 @@
 		<div class="audio-container audio-flex-between">
 				
 			<div class="main-right">
-				<div class="main-category">
+				<div class="main-category" onmouseover="showCategory(event)">
 					<div class="main-category-title-wrap">
 						<a href="/song_semi/edit/category1.jsp">
-							<h3>대분류1</h3>
+							<h3>문학</h3>
 						</a>
 					</div>
 
-					<ul class="main-category-lists">
-						<li><a href="/song_semi/edit/category1.jsp">소분류1</a></li>
-						<li><a href="/song_semi/edit/category1.jsp">소분류2</a></li>
-						<li><a href="#">소분류3</a></li>
+					<ul class="main-category-lists" style="display:none;">
+						<li><a href="/song_semi/edit/category1.jsp">국내문학</a></li>
+						<li><a href="/song_semi/edit/category1.jsp">영미문학</a></li>
+						<li><a href="/song_semi/edit/category1.jsp">독일문학</a></li>
+						<li><a href="/song_semi/edit/category1.jsp">러시아문학</a></li>
+						<li><a href="#">프랑스문학</a></li>
+						<li><a href="#">일본문학</a></li>
 					</ul>
 				</div>
-				<div class="main-category">
+				<div class="main-category" onmouseover="showCategory(event)">
 					<div class="main-category-title-wrap">
 						<a href="/song_semi/edit/category1.jsp">
-							<h3>대분류1</h3>
+							<h3>역사</h3>
 						</a>
 					</div>
 
-					<ul class="main-category-lists">
-						<li><a href="#">소분류1</a></li>
-						<li><a href="#">소분류2</a></li>
-						<li><a href="#">소분류3</a></li>
+					<ul class="main-category-lists" style="display:none;">
+						<li><a href="/song_semi/edit/category1.jsp">세계사</a></li>
+						<li><a href="/song_semi/edit/category1.jsp" style="color: lightgray;">서양사</a></li>
+						<li><a href="#">동양사</a></li>
 					</ul>
 				</div>
-				<div class="main-category">
+				<div class="main-category" onmouseover="showCategory(event)">
 					<div class="main-category-title-wrap">
 						<a href="/song_semi/edit/category1.jsp">
-							<h3>대분류1</h3>
+							<h3>철학</h3>
 						</a>
 					</div>
 
-					<ul class="main-category-lists">
-						<li><a href="#">소분류1</a></li>
-						<li><a href="#">소분류2</a></li>
-						<li><a href="#">소분류3</a></li>
+					<ul class="main-category-lists" style="display:none;">
+						<li><a href="/song_semi/edit/category1.jsp">철학사</a></li>
+						<li><a href="/song_semi/edit/category1.jsp">서양철학</a></li>
+						<li><a href="#">동양철학</a></li>
 					</ul>
 				</div>
-				<div class="main-category">
+				<div class="main-category" onmouseover="showCategory(event)">
 					<div class="main-category-title-wrap">
 						<a href="/song_semi/edit/category1.jsp">
-							<h3>대분류1</h3>
+							<h3>과학</h3>
 						</a>
 					</div>
 
-					<ul class="main-category-lists">
-						<li><a href="#">소분류1</a></li>
-						<li><a href="#">소분류2</a></li>
-						<li><a href="#">소분류3</a></li>
+					<ul class="main-category-lists" style="display:none;">
+						<li><a href="/song_semi/edit/category1.jsp">물리학</a></li>
+						<li><a href="/song_semi/edit/category1.jsp">화학</a></li>
+						<li><a href="#">수학</a></li>
+					</ul>
+				</div>
+				<div class="main-category" onmouseover="showCategory(event)">
+					<div class="main-category-title-wrap">
+						<a href="/song_semi/edit/category1.jsp">
+							<h3>예술</h3>
+						</a>
+					</div>
+
+					<ul class="main-category-lists" style="display:none;">
+						<li><a href="/song_semi/edit/category1.jsp">미술</a></li>
+						<li><a href="/song_semi/edit/category1.jsp">음악</a></li>
+						<li><a href="#">사진</a></li>
+						<li><a href="#">영화</a></li>
+					</ul>
+				</div>
+				<div class="main-category" onmouseover="showCategory(event)">
+					<div class="main-category-title-wrap">
+						<a href="/song_semi/edit/category1.jsp">
+							<h3>경제 / 경영</h3>
+						</a>
+					</div>
+
+					<ul class="main-category-lists" style="display:none;">
+						<li><a href="/song_semi/edit/category1.jsp">경제</a></li>
+						<li><a href="/song_semi/edit/category1.jsp">경영</a></li>
+						<li><a href="#">마케팅</a></li>
+						<li><a href="#">투자</a></li>
+					</ul>
+				</div>
+				<div class="main-category" onmouseover="showCategory(event)">
+					<div class="main-category-title-wrap">
+						<a href="/song_semi/edit/category1.jsp">
+							<h3>사회</h3>
+						</a>
+					</div>
+
+					<ul class="main-category-lists" style="display:none;">
+						<li><a href="/song_semi/edit/category1.jsp">정치</a></li>
+						<li><a href="/song_semi/edit/category1.jsp">지리</a></li>
+						<li><a href="#">교육</a></li>
+						<li><a href="#">법</a></li>
+					</ul>
+				</div>
+				<div class="main-category" onmouseover="showCategory(event)">
+					<div class="main-category-title-wrap">
+						<a href="/song_semi/edit/category1.jsp">
+							<h3>요리 / 음식</h3>
+						</a>
+					</div>
+
+					<ul class="main-category-lists" style="display:none;">
+						<li><a href="/song_semi/edit/category1.jsp">한식</a></li>
+						<li><a href="/song_semi/edit/category1.jsp">양식</a></li>
+						<li><a href="#">중식</a></li>
+						<li><a href="#">주류</a></li>
+						<li><a href="#">커피 / 차</a></li>
 					</ul>
 				</div>
 			</div>
