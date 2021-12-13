@@ -41,7 +41,7 @@ function removeCategory(e){
 		<div id="navbar">
 				<ul>
 					<li><a href="${pageContext.request.contextPath }/loginForm">로그인</a></li>
-					<li><a href="${pageContext.request.contextPath }/loginForm">회원가입</a></li>
+					<li><a href="${pageContext.request.contextPath }/joinForm">회원가입</a></li>
 					<li><a href="${pageContext.request.contextPath }/cart">장바구니</a></li>
 					<li><a href="${pageContext.request.contextPath }/order">주문내역</a></li>
 					<li><a href="${pageContext.request.contextPath }/admin">관리자페이지</a></li>

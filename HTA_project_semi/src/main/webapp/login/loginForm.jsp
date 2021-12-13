@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<form>
-	회원번호 <input type="text" name="num"><br>
-	이름 <input type="text" name="name"><br>
-	전화번호 <input type="text" name="phone"><br>
-	주소 <input type="text" name="addr"><br>
-	<input type="submit" value="가입">	
+    <h1>로그인</h1>
+<form method="post" action="${pageContext.request.contextPath }/loginForm">
+	아이디 <input type="text" name="id"><br>
+	비밀번호 <input type="password" name="pwd"><br>
+	<input type="submit" value="로그인">	
 </form>
