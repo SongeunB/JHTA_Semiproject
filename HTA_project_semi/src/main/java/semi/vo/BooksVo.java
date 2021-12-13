@@ -3,7 +3,7 @@ package semi.vo;
 import java.sql.Date;
 
 public class BooksVo {
-	private int id_item;
+	private String id_item;
 	private int price;
 	private int status;
 	private int stock;
@@ -16,7 +16,7 @@ public class BooksVo {
 	private String genre_detail;
 	private String org_title;
 	private String org_author;
-	public BooksVo(int id_item, int price, int status, int stock, String title, String author, String translator,
+	public BooksVo(String id_item, int price, int status, int stock, String title, String author, String translator,
 			String publisher, Date ymd, String genre, String genre_detail, String org_title, String org_author) {
 		super();
 		this.id_item = id_item;
@@ -33,10 +33,10 @@ public class BooksVo {
 		this.org_title = org_title;
 		this.org_author = org_author;
 	}
-	public int getId_item() {
+	public String getId_item() {
 		return id_item;
 	}
-	public void setId_item(int id_item) {
+	public void setId_item(String id_item) {
 		this.id_item = id_item;
 	}
 	public int getPrice() {

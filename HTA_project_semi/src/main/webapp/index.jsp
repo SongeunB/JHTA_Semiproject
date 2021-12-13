@@ -3,7 +3,7 @@
 
 <jsp:include page="${requestScope.header1 }"></jsp:include>
 
-<jsp:include page="${requestScope.home }"></jsp:include>
+<jsp:include page="${requestScope.body }"></jsp:include>
 
 <jsp:include page="${requestScope.footer }"></jsp:include>
 

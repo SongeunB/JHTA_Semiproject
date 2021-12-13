@@ -22,6 +22,7 @@ function removeCategory(e){
 <title>3조문고</title>
 </head>
 <body>
+<c:set var="cp" value="${pageContext.request.contextPath}"/>
 
 <header id="main-header">
 		<div class="search_area">
@@ -34,18 +35,18 @@ function removeCategory(e){
 			</div>
 			
 			<div id="main_right">
-				<img src="image/main_ship.png">
+				<a href="${cp}/home"><img src="image/main_ship.png"></a>
 			</div>
 			
 		</div>
 			
 		<div id="navbar">
 				<ul>
-					<li><a href="${pageContext.request.contextPath }/loginForm">로그인</a></li>
-					<li><a href="${pageContext.request.contextPath }/joinForm">회원가입</a></li>
-					<li><a href="${pageContext.request.contextPath }/cart">장바구니</a></li>
-					<li><a href="${pageContext.request.contextPath }/order">주문내역</a></li>
-					<li><a href="${pageContext.request.contextPath }/admin">관리자페이지</a></li>
+					<li><a href="${cp}/loginForm">로그인</a></li>
+					<li><a href="${cp}/joinForm">회원가입</a></li>
+					<li><a href="${cp}/cart">장바구니</a></li>
+					<li><a href="${cp}/order">주문내역</a></li>
+					<li><a href="${cp}/admin">관리자페이지</a></li>
 				</ul>
 		</div>
 		
