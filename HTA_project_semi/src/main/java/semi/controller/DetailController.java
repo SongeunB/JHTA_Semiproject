@@ -18,7 +18,7 @@ public class DetailController extends HttpServlet{
 		req.setAttribute("header1", "/header.jsp");
 		req.setAttribute("body", "/category/detail.jsp");
 		req.setAttribute("footer", "/footer.jsp");
-		Long id_item=Long.parseLong(req.getParameter("id_item"));
+		String id_item=req.getParameter("id_item");
 		BooksDao dao=new BooksDao();
 		BooksVo vo=dao.detail(id_item);
 		System.out.println(vo.getAuthor());

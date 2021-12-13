@@ -10,7 +10,7 @@ import db.JdbcUtil;
 import semi.vo.BooksVo;
 
 public class BooksDao {
-	public BooksVo detail(Long id_item) {
+	public BooksVo detail(String id_item) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -18,7 +18,7 @@ public class BooksDao {
 			con=JdbcUtil.getCon();
 			String sql="select * from books where id_item=?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setLong(1, id_item);
+			pstmt.setString(1, id_item);
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
 				int price=rs.getInt("price");
