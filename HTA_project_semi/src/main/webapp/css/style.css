@@ -1,9 +1,5 @@
 /***************공통적용***************/
 
-div#main_right {
-    margin-left: 50px;
-}
-
 * {
 	margin: 0;
 	padding: 0;
@@ -94,6 +90,14 @@ input, textarea {
 	width: 52px;
 	height: 100%;
 	background-color: #132287;
+}
+
+#main-header #main_right {
+    margin-left: 50px;
+}
+
+#main-header #main_right img {
+	width: 120px;
 }
 
 #main-header #navbar {
@@ -585,9 +589,6 @@ main {
 	color: #959595;
 }
 
-#audio-footer .footer-copyright-link .symbol{
-	
-}
 
 
 
