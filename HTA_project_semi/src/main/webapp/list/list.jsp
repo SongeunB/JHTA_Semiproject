@@ -60,7 +60,7 @@
 							<li>
 								<a href="#">
 									<div class="image-wrap ">
-										<center><a href="/detail?id_item=${vo.id_item}"><img src="<%=request.getContextPath() %>/img_cover/${vo.id_item }.jpg" class="img_search"></a></center>
+										<center><a href="${pageContext.request.contextPath}/detail?id_item=${vo.id_item}"><img src="<%=request.getContextPath() %>/img_cover/${vo.id_item }.jpg" class="img_search"></a></center>
 									</div>
 									
 									<h3>${vo.title }</h3>
