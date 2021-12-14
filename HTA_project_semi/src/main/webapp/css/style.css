@@ -734,6 +734,11 @@ main {
 	font-weight: 700;
 }
 
+#detail_wrapper #info_right .order_btn_a {
+	display: inline;
+	margin: 0px;
+}
+
 #detail_wrapper #info_right .order_btn {
 	width: 200px;
 	height: 50px;
@@ -745,16 +750,26 @@ main {
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
-	margin: 5px 10px;
+	margin-top: 5px;
 	cursor: pointer;
 }
 
 #detail_wrapper #info_right .order_btn:first-child {
-	margin-left: 40px;
+	margin-left: 20px;
 }
 
-#detail_wrapper #detail_info_img {
+#detail_wrapper #info_right .order_btn:last-child {
+	margin-right: 20px;
+}
+
+#detail_wrapper #detail_bottom .info_right_wrap {
+	text-align: center;
+	margin-top: 20px;
+}
+
+#detail_wrapper #detail_bottom #detail_info_img {
 	width: 1000px;
+	margin: 20px 0px 50px 50px;
 }
 
 
