@@ -9,7 +9,7 @@
 	이름 <input type="text" name="name"><br>
 	이메일 <input type="text" name="email"><br>
 	전화번호 <input type="text" name="phone"><br>
-	주소 <input type="text" name="addr"><br>
+	주소 <input type="text" name="address"><br>
 	<input type="submit" value="가입">	
 </form>
 </div>

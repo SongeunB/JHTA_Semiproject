@@ -1,6 +1,7 @@
 package semi.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,7 +29,7 @@ public class CustomersDao {
 			pstmt.setString(3, vo.getName());
 			pstmt.setString(4, vo.getEmail());
 			pstmt.setString(5, vo.getPhone());
-			pstmt.setString(6, vo.getAddr());
+			pstmt.setString(6, vo.getAddress());
 			return pstmt.executeUpdate();
 		}catch(SQLException se) {
 			se.printStackTrace();
@@ -61,5 +62,56 @@ public class CustomersDao {
 			}finally {
 				JdbcUtil.close(con, pstmt, rs);
 			}
+	}
+	
+	public int update(CustomersVo vo) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		try {
+			con=JdbcUtil.getCon();
+			String sql="update customers set pwd=?,name=?,email=?,phone=?,addr=? where id=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, vo.getPwd());
+			pstmt.setString(2, vo.getName());
+			pstmt.setString(3, vo.getEmail());
+			pstmt.setString(4, vo.getPhone());
+			pstmt.setString(5, vo.getAddress());
+			pstmt.setString(6, vo.getId());
+			return pstmt.executeUpdate();
+		}catch(SQLException s) {
+			s.printStackTrace();
+			return -1;
+		}finally {
+			JdbcUtil.close(con,pstmt,null);
+		}
+	}
+	
+	public CustomersVo select(String id) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=JdbcUtil.getCon();
+			String sql="select * from customers where id=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				String pwd=rs.getString("pwd");
+				String name=rs.getString("name");
+				String email=rs.getString("email");
+				String phone=rs.getString("phone");
+				String address=rs.getString("address");
+				
+				CustomersVo vo=new CustomersVo(id,pwd,name,email,phone,address);
+				return vo;
+			}
+			return null;
+		}catch(SQLException se) {
+			se.printStackTrace();
+			return null;
+		}finally {
+			JdbcUtil.close(con,pstmt,rs);
+		}
 	}
 }

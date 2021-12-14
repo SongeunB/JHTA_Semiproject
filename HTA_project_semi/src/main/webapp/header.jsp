@@ -52,12 +52,13 @@ function removeCategory(e){
 				<c:choose>
 					<c:when test="${empty sessionScope.id }">
 						<li><a href="${cp}/loginForm">로그인</a></li>
+						<li><a href="${cp}/joinForm">회원가입</a></li>
 					</c:when>
 					<c:otherwise>
 						<li>[${sessionScope.id }님 반갑습니다.]<a href="${cp}/logout">로그아웃</a></li>
+						<li><a href="${cp}/updateForm">정보수정</a></li>
 					</c:otherwise>
 				</c:choose>
-					<li><a href="${cp}/joinForm">회원가입</a></li>
 					<li><a href="${cp}/cart">장바구니</a></li>
 					<li><a href="${cp}/order">주문내역</a></li>
 					<li><a href="${cp}/admin">관리자페이지</a></li>

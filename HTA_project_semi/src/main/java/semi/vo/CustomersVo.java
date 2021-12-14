@@ -6,10 +6,10 @@ public class CustomersVo {
 	private String name;
 	private String email;
 	private String phone;
-	private String addr;
+	private String address;
 	
 	public CustomersVo() {}
-	public CustomersVo(String id, String pwd, String name, String email, String phone, String addr) {
+	public CustomersVo(String id, String pwd, String name, String email, String phone, String address) {
 		
 	}
 	public String getId() {
@@ -42,11 +42,11 @@ public class CustomersVo {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getAddr() {
-		return addr;
+	public String getAddress() {
+		return address;
 	}
-	public void setAddr(String addr) {
-		this.addr = addr;
+	public void setAddr(String address) {
+		this.address = address;
 	}
 	
 	

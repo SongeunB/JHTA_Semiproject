@@ -14,27 +14,17 @@ import semi.dao.CustomersDao;
 
 @WebServlet("/loginForm")
 public class LoginFormController extends HttpServlet {
-//	@Override
-//	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		req.setAttribute("header1", "/header.jsp");
-//		req.setAttribute("loginForm", "/login/loginForm.jsp");
-//		req.setAttribute("footer", "/footer.jsp");
-//		req.getRequestDispatcher("/login/loginForm2.jsp").forward(req, resp);
-//	}
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("header1", "/header.jsp");
-		req.setAttribute("loginForm", "/login/loginForm.jsp");
+		req.setAttribute("body", "/login/loginForm.jsp");
 		req.setAttribute("footer", "/footer.jsp");
-		req.getRequestDispatcher("/login/loginForm2.jsp").forward(req, resp);
+		req.getRequestDispatcher("/index.jsp").forward(req, resp);
 	}
 	@Override
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		req.setAttribute("header1", "/header.jsp");
-//		req.setAttribute("loginForm", "/login/loginForm.jsp");
-//		req.setAttribute("footer", "/footer.jsp");
-//		req.getRequestDispatcher("/login/loginForm2.jsp").forward(req, resp);
-		
+
 		String id=req.getParameter("id");
 		String pwd=req.getParameter("pwd");
 		HashMap<String, String> map=new HashMap<String, String>();
@@ -46,13 +36,13 @@ public class LoginFormController extends HttpServlet {
 		if(b) {
 			HttpSession session=req.getSession(); 
 			session.setAttribute("id", id);
-			resp.sendRedirect(req.getContextPath() +"/main.jsp");
+			resp.sendRedirect(req.getContextPath() +"/index.jsp");
 		}else {
 			req.setAttribute("errMsg","아이디나 비밀번호가 맞지 않습니다");
 			req.setAttribute("header1", "/header.jsp");
-			req.setAttribute("loginForm", "/login/loginForm.jsp");
+			req.setAttribute("body", "/login/loginForm.jsp");
 			req.setAttribute("footer", "/footer.jsp");
-			req.getRequestDispatcher("/login/loginForm2.jsp").forward(req, resp);
+			req.getRequestDispatcher("/index.jsp").forward(req, resp);
 		}
 		
 		}

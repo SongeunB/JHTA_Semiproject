@@ -11,17 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import semi.dao.CustomersDao;
 import semi.vo.CustomersVo;
 @WebServlet("/joinForm")
-public class JoinFormController extends HttpServlet{
-//	@Override
-//	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		resp.setCharacterEncoding("utf-8");
-//		
-//		
-//		req.setAttribute("header1", "/header.jsp");
-//		req.setAttribute("joinForm", "/join/joinForm.jsp");
-//		req.setAttribute("footer", "/footer.jsp");
-//		req.getRequestDispatcher("/join/joinForm2.jsp").forward(req, resp);
-//	}
+public class CustomersJoinFormController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("header1", "/header.jsp");
@@ -41,18 +31,10 @@ public class JoinFormController extends HttpServlet{
 		String name=req.getParameter("name");
 		String email=req.getParameter("email");
 		String phone=req.getParameter("phone");
-		String addr=req.getParameter("addr");
+		String address=req.getParameter("address");
 		
-		CustomersVo vo=new CustomersVo(id,pwd,name,email,phone,addr);
-		CustomersDao dao=CustomersDao.getInstance();
-		int n=dao.insert(vo);
-		
-		if(n>0) {
-			req.setAttribute("result", "success");
-		}else {
-			req.setAttribute("result", "fail");
-		}
+		CustomersVo vo=new CustomersVo(id,pwd,name,email,phone,address);
+		CustomersDao.getInstance().insert(vo);
 		req.getRequestDispatcher("/index.jsp").forward(req, resp);
-		
-		}
+	}
 }
