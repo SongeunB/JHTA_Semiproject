@@ -34,7 +34,7 @@ function removeCategory(e){
 <header id="main-header">
 		<div class="search_area">
 		
-		<img src="image/logo1.png" id="logo">
+		<a href="${cp}/home"><img src="image/logo1.png" id="logo"></a>
 		
 			<div class="search_wrap">
 				<input type="text">
@@ -42,7 +42,7 @@ function removeCategory(e){
 			</div>
 			
 			<div id="main_right">
-				<a href="${cp}/home"><img src="image/main_ship.png"></a>
+				<img src="image/main_ship.png">
 			</div>
 			
 		</div>
