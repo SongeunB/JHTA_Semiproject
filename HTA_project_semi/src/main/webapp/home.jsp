@@ -1,121 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 	<main id="audio-main" role="main">
 			
 		<div class="audio-container audio-flex-between">
 				
 			<div class="main-right">
-				<div class="main-category" onmouseover="showCategory(event)">
+				<div class="main-category" onmouseover="showCategory(event)" onmouseout="removeCategory(event)">
 					<div class="main-category-title-wrap">
 						<a href="/song_semi/edit/category1.jsp">
-							<h3>문학</h3>
-						</a>
+				<c:set var="ctdummy" value="${fn:split(category[0],'@')[0]}"/>
+						<h3>${ctdummy}</h3>
+					</a>
 					</div>
 
 					<ul class="main-category-lists" style="display:none;">
-						<li><a href="/song_semi/edit/category1.jsp">국내문학</a></li>
-						<li><a href="/song_semi/edit/category1.jsp">영미문학</a></li>
-						<li><a href="/song_semi/edit/category1.jsp">독일문학</a></li>
-						<li><a href="/song_semi/edit/category1.jsp">러시아문학</a></li>
-						<li><a href="#">프랑스문학</a></li>
-						<li><a href="#">일본문학</a></li>
-					</ul>
-				</div>
-				<div class="main-category" onmouseover="showCategory(event)">
-					<div class="main-category-title-wrap">
-						<a href="/song_semi/edit/category1.jsp">
-							<h3>역사</h3>
-						</a>
-					</div>
-
-					<ul class="main-category-lists" style="display:none;">
-						<li><a href="/song_semi/edit/category1.jsp">세계사</a></li>
-						<li><a href="/song_semi/edit/category1.jsp" style="color: lightgray;">서양사</a></li>
-						<li><a href="#">동양사</a></li>
-					</ul>
-				</div>
-				<div class="main-category" onmouseover="showCategory(event)">
-					<div class="main-category-title-wrap">
-						<a href="/song_semi/edit/category1.jsp">
-							<h3>철학</h3>
-						</a>
-					</div>
-
-					<ul class="main-category-lists" style="display:none;">
-						<li><a href="/song_semi/edit/category1.jsp">철학사</a></li>
-						<li><a href="/song_semi/edit/category1.jsp">서양철학</a></li>
-						<li><a href="#">동양철학</a></li>
-					</ul>
-				</div>
-				<div class="main-category" onmouseover="showCategory(event)">
-					<div class="main-category-title-wrap">
-						<a href="/song_semi/edit/category1.jsp">
-							<h3>과학</h3>
-						</a>
-					</div>
-
-					<ul class="main-category-lists" style="display:none;">
-						<li><a href="/song_semi/edit/category1.jsp">물리학</a></li>
-						<li><a href="/song_semi/edit/category1.jsp">화학</a></li>
-						<li><a href="#">수학</a></li>
-					</ul>
-				</div>
-				<div class="main-category" onmouseover="showCategory(event)">
-					<div class="main-category-title-wrap">
-						<a href="/song_semi/edit/category1.jsp">
-							<h3>예술</h3>
-						</a>
-					</div>
-
-					<ul class="main-category-lists" style="display:none;">
-						<li><a href="/song_semi/edit/category1.jsp">미술</a></li>
-						<li><a href="/song_semi/edit/category1.jsp">음악</a></li>
-						<li><a href="#">사진</a></li>
-						<li><a href="#">영화</a></li>
-					</ul>
-				</div>
-				<div class="main-category" onmouseover="showCategory(event)">
-					<div class="main-category-title-wrap">
-						<a href="/song_semi/edit/category1.jsp">
-							<h3>경제 / 경영</h3>
-						</a>
-					</div>
-
-					<ul class="main-category-lists" style="display:none;">
-						<li><a href="/song_semi/edit/category1.jsp">경제</a></li>
-						<li><a href="/song_semi/edit/category1.jsp">경영</a></li>
-						<li><a href="#">마케팅</a></li>
-						<li><a href="#">투자</a></li>
-					</ul>
-				</div>
-				<div class="main-category" onmouseover="showCategory(event)">
-					<div class="main-category-title-wrap">
-						<a href="/song_semi/edit/category1.jsp">
-							<h3>사회</h3>
-						</a>
-					</div>
-
-					<ul class="main-category-lists" style="display:none;">
-						<li><a href="/song_semi/edit/category1.jsp">정치</a></li>
-						<li><a href="/song_semi/edit/category1.jsp">지리</a></li>
-						<li><a href="#">교육</a></li>
-						<li><a href="#">법</a></li>
-					</ul>
-				</div>
-				<div class="main-category" onmouseover="showCategory(event)">
-					<div class="main-category-title-wrap">
-						<a href="/song_semi/edit/category1.jsp">
-							<h3>요리 / 음식</h3>
-						</a>
-					</div>
-
-					<ul class="main-category-lists" style="display:none;">
-						<li><a href="/song_semi/edit/category1.jsp">한식</a></li>
-						<li><a href="/song_semi/edit/category1.jsp">양식</a></li>
-						<li><a href="#">중식</a></li>
-						<li><a href="#">주류</a></li>
-						<li><a href="#">커피 / 차</a></li>
+				<c:forEach var="ctString" items="${category}">
+				<c:set var="ct" value="${fn:split(ctString,'@')}"/>
+				<c:choose>
+					<c:when test="${ct[0]!=ctdummy}">
+							</ul>
+						</div>
+						<div class="main-category" onmouseover="showCategory(event)" onmouseout="removeCategory(event)">
+							<div class="main-category-title-wrap">
+								<a href="/song_semi/edit/category1.jsp">
+								<h3>${ct[0]}</h3>
+								</a>
+								</div>
+								<ul class="main-category-lists" style="display:none;">
+									<li><a href="/song_semi/edit/category1.jsp">${ct[1]}</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a href="/song_semi/edit/category1.jsp">${ct[1]}</a></li>
+					</c:otherwise>
+				</c:choose>
+				<c:set var="ctdummy" value="${ct[0]}"/>
+				</c:forEach>
 					</ul>
 				</div>
 			</div>
@@ -143,119 +64,61 @@
 					</div>
 				</div>
 
-				<div id="audio-original" class="audio-section">
+				<div class="audio-original" class="audio-section">
 
 					<div class="audio-header">
-						<h2>이달의 추천 소설</h2>
-					</div>
-
-					<div class="audio-body">
+						<h2>새로 나온 책</h2>
+						<p>최근 출간된 책을 만나보세요.</p>
 						
-						<ul class="audio-flex-between">
-							<li>
-								<a href="#">
-									<img src="img/kimyung.png">
-									<h3>완벽한 아이</h3>
-									<span class="author">김영하</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="img/kimyung.png">
-									<h3>완벽한 아이</h3>
-									<span class="author">김영하</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="img/kimyung.png">
-									<h3>완벽한 아이</h3>
-									<span class="author">김영하</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="img/kimyung.png">
-									<h3>완벽한 아이</h3>
-									<span class="author">김영하</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img src="img/kimyung.png">
-									<h3>완벽한 아이</h3>
-									<span class="author">김영하</span>
-								</a>
-							</li>
-						</ul>
-
-						<button type="button" class="btn-right"></button>
-					</div>
-				</div>
-
-				<div id="audio-playlist" class="audio-section">
-
-					<div class="audio-header">
-						<h2>화제의 책소식</h2>
-						<p>당신을 위해 매일 새롭게 업데이트 됩니다.</p>
-
 						<a href="#" class="link-total">전체보기</a>
 					</div>
 
 					<div class="audio-body">
 						
 						<ul class="audio-flex-between">
+						<c:forEach var="newVo" items="${newList}">
 							<li>
-								<a href="#">
-									<div class="image-wrap">
-										<img src="img/KBS_News.jpg">
-										
-										<i class="icon-play"></i>
-									</div>
-
-									<h3>KBS 뉴스</h3>
+								<a href="${pageContext.request.contextPath}/detail?id_item=${newVo.id_item}">
+									<img src="img_cover/${newVo.id_item}.jpg" class="img_cover">
+									<h3>${newVo.title}</h3>
+									<span class="author">${newVo.author}</span>
 								</a>
 							</li>
-							<li>
-								<a href="#">
-									<div class="image-wrap">
-										<img src="img/KBS_News.jpg">
-										
-										<i class="icon-play"></i>
-									</div>
-
-									<h3>KBS 뉴스</h3>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<div class="image-wrap">
-										<img src="img/KBS_News.jpg">
-										
-										<i class="icon-play"></i>
-									</div>
-
-									<h3>KBS 뉴스</h3>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<div class="image-wrap">
-										<img src="img/KBS_News.jpg">
-										
-										<i class="icon-play"></i>
-									</div>
-
-									<h3>KBS 뉴스</h3>
-								</a>
-							</li>
+						</c:forEach>
 						</ul>
 
-						<button type="button" class="btn-right"></button>
+						<!--<button type="button" class="btn-right"></button> -->
 					</div>
 				</div>
 
-				<div id="audio-book" class="audio-section">
+				<div class="audio-original" class="audio-section" style="margin-top:80px;">
+
+					<div class="audio-header">
+						<h2>BEST 셀러</h2>
+						<p>지난 달 사람들이 많이 찾은 책을 만나보세요.</p>
+						
+						<a href="#" class="link-total">전체보기</a>
+					</div>
+
+					<div class="audio-body" style="margin-bottom:100px;">
+						
+						<ul class="audio-flex-between">
+						<c:forEach var="bestVo" items="${bestList}">
+							<li>
+								<a href="${pageContext.request.contextPath}/detail?id_item=${bestVo.id_item}">
+									<img src="img_cover/${bestVo.id_item}.jpg" class="img_cover">
+									<h3>${bestVo.title}</h3>
+									<span class="author">${bestVo.author}</span>
+								</a>
+							</li>
+						</c:forEach>
+						</ul>
+
+						<!--<button type="button" class="btn-right"></button> -->
+					</div>
+				</div>
+
+			<!--  <div id="audio-book" class="audio-section">
 					
 					<div class="audio-header">
 						<h2>주간 베스트 TOP 100</h2>
@@ -392,7 +255,7 @@
 						
 					</div>
 				</div>
-			</div>
+			</div>-->
 
 			
 		</div>

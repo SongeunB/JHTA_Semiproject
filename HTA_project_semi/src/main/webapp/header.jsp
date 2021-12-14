@@ -7,11 +7,18 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script type="text/javascript">
+window.onload=function(){
+	let cover=document.getElementsByClassName("img_cover");
+	for(let i=0;i<cover.length;i++){
+		if(cover[i].height!=180){
+			cover[i].style.marginTop=(178-cover[i].height)+"px";
+		}
+	}
+}
 function showCategory(e){
 	let cts=e.currentTarget.childNodes;
 	cts[3].style.display="";
 	e.currentTarget.style.backgroundColor="#f0f8ff";
-	e.currentTarget.addEventListener('mouseout',removeCategory);
 }
 function removeCategory(e){
 	let cts=e.currentTarget.childNodes;
