@@ -5,7 +5,7 @@ import java.sql.Date;
 public class BooksVo {
 	private String id_item;
 	private int price;
-	private int status;
+	private String status;
 	private int stock;
 	private String title;
 	private String author;
@@ -16,7 +16,7 @@ public class BooksVo {
 	private String genre_detail;
 	private String org_title;
 	private String org_author;
-	public BooksVo(String id_item, int price, int status, int stock, String title, String author, String translator,
+	public BooksVo(String id_item, int price, String status, int stock, String title, String author, String translator,
 			String publisher, Date ymd, String genre, String genre_detail, String org_title, String org_author) {
 		super();
 		this.id_item = id_item;
@@ -45,10 +45,10 @@ public class BooksVo {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public int getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(int status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	public int getStock() {
