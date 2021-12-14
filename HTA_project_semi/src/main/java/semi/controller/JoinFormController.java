@@ -25,14 +25,14 @@ public class JoinFormController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("header1", "/header.jsp");
-		req.setAttribute("joinForm", "/join/joinForm.jsp");
+		req.setAttribute("body", "/join/joinForm.jsp");
 		req.setAttribute("footer", "/footer.jsp");
-		req.getRequestDispatcher("/join/joinForm2.jsp").forward(req, resp);
+		req.getRequestDispatcher("/index.jsp").forward(req, resp);
 	}
 	@Override
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("header1", "/header.jsp");
-		req.setAttribute("joinForm", "/join/joinForm.jsp");
+		req.setAttribute("body", "/join/joinForm.jsp");
 		req.setAttribute("footer", "/footer.jsp");
 		
 		resp.setCharacterEncoding("utf-8");
@@ -52,7 +52,7 @@ public class JoinFormController extends HttpServlet{
 		}else {
 			req.setAttribute("result", "fail");
 		}
-		req.getRequestDispatcher("index.jsp").forward(req, resp);
+		req.getRequestDispatcher("/index.jsp").forward(req, resp);
 		
 		}
 }
