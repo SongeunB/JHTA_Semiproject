@@ -1,7 +1,6 @@
 package semi.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -69,7 +68,7 @@ public class CustomersDao {
 		PreparedStatement pstmt=null;
 		try {
 			con=JdbcUtil.getCon();
-			String sql="update customers set pwd=?,name=?,email=?,phone=?,addr=? where id=?";
+			String sql="update customers set pwd=?,name=?,email=?,phone=?,address=? where id=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, vo.getPwd());
 			pstmt.setString(2, vo.getName());

@@ -45,7 +45,7 @@ public class CustomersVo {
 	public String getAddress() {
 		return address;
 	}
-	public void setAddr(String address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 	
