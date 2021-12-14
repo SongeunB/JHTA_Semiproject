@@ -19,8 +19,8 @@ public class MainController extends HttpServlet {
 		req.setAttribute("body", "home.jsp");
 		req.setAttribute("footer", "footer.jsp");
 		req.setAttribute("category", new CategoryDao().getCategory());
-		req.setAttribute("newList", new BooksDao().newList());
-		req.setAttribute("bestList", new BooksDao().bestList());
+		req.setAttribute("newList", BooksDao.getInstance().newList());
+		req.setAttribute("bestList", BooksDao.getInstance().bestList());
 		req.getRequestDispatcher("index.jsp").forward(req, resp);
 	}
 }

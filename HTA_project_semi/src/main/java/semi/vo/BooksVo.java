@@ -16,6 +16,9 @@ public class BooksVo {
 	private String genre_detail;
 	private String org_title;
 	private String org_author;
+	
+	public BooksVo() {}
+	
 	public BooksVo(String id_item, int price, String status, int stock, String title, String author, String translator,
 			String publisher, Date ymd, String genre, String genre_detail, String org_title, String org_author) {
 		super();

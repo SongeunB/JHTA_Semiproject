@@ -5,13 +5,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/style.css">
 <script type="text/javascript">
 window.onload=function(){
 	let cover=document.getElementsByClassName("img_cover");
 	for(let i=0;i<cover.length;i++){
 		if(cover[i].height!=180){
 			cover[i].style.marginTop=(178-cover[i].height)+"px";
+		}
+	}
+	
+	let list=document.getElementsByClassName("img_search");
+	for(let i = 0; i < list.length; i++){
+		if(list[i].height!=180){
+			list[i].style.marginTop=(180-list[i].height)+"px";
 		}
 	}
 }
@@ -34,15 +41,15 @@ function removeCategory(e){
 <header id="main-header">
 		<div class="search_area">
 		
-		<a href="${cp}/home"><img src="image/logo1.png" id="logo"></a>
-		
-			<div class="search_wrap">
-				<input type="text">
-				<button type="button"></button>
-			</div>
-			
+		<a href="${cp}/home"><img src="<%=request.getContextPath() %>/image/logo1.png" id="logo"></a>
+			<form action="${cp }/header/search">
+				<div class="search_wrap">
+					<input type="text" name="keyword">
+					<button type="submit">검색</button>
+				</div>
+			</form>
 			<div id="main_right">
-				<img src="image/main_ship.png">
+				<img src="<%=request.getContextPath() %>/image/main_ship.png">
 			</div>
 			
 		</div>

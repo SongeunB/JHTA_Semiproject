@@ -13,6 +13,65 @@ import db.JdbcUtil;
 import semi.vo.BooksVo;
 
 public class BooksDao {
+	
+	private static BooksDao instance = new BooksDao();
+	
+	private BooksDao() {}
+	
+	public static BooksDao getInstance() {
+		return instance;
+	}
+	
+	public ArrayList<BooksVo> search(String keyword) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = JdbcUtil.getCon();
+			String sql = "select * from books";
+			
+			if(keyword.length()>=1) {
+				sql += " where lower(title) like lower(?) or lower(author) like lower(?) or lower(genre) like lower(?) or lower(genre_detail) like lower(?) or lower(org_title) like lower(?) or lower(org_author) like lower(?)";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%"+keyword+"%");
+				pstmt.setString(2, "%"+keyword+"%");
+				pstmt.setString(3, "%"+keyword+"%");
+				pstmt.setString(4, "%"+keyword+"%");
+				pstmt.setString(5, "%"+keyword+"%");
+				pstmt.setString(6, "%"+keyword+"%");
+			} else {
+				pstmt = con.prepareStatement(sql);
+			}
+			
+			rs = pstmt.executeQuery();
+			ArrayList<BooksVo> list = new ArrayList<BooksVo>();
+			while(rs.next()) {
+				String id_item = rs.getString("id_item");
+				int price = rs.getInt("price");
+				String status = rs.getString("status");
+				int stock = rs.getInt("stock");
+				String title = rs.getString("title");
+				String author = rs.getString("author");
+				String translator = rs.getString("translator");
+				String publisher = rs.getString("publisher");
+				Date ymd = rs.getDate("ymd");
+				String genre = rs.getString("genre");
+				String genre_detail = rs.getString("genre_detail");
+				String org_title = rs.getString("org_title");
+				String org_author = rs.getString("org_author");
+				BooksVo vo = new BooksVo(id_item, price, status, stock, title, author, translator, publisher, ymd, genre, genre_detail, org_title, org_author);
+				list.add(vo);
+			}
+			return list;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			JdbcUtil.close(con, pstmt, rs);
+		}
+	}
+	
 	public BooksVo detail(String id_item) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
