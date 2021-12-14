@@ -39,6 +39,43 @@ input, textarea {
 }
 
 
+.flex-start {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
+}
+
+.flex-between {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	align-content: stretch;
+
+}
+
+.flex-center {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+}
+
+.flex-end {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-items: center;
+	align-content: stretch;
+}
+
 
 /***************header***************/
 
@@ -633,7 +670,84 @@ main {
 
 
 
+/***************detail***************/
 
+
+#detail_wrapper #detail_top {
+	height: 700px;
+	border-bottom: 1px solid #ABABAB;
+	
+}
+#detail_wrapper #cover_img {
+	width: 400px;
+	margin: 50px 50px 50px 50px;
+	box-shadow: 13px 16px 14px -6px rgba(0,0,0,0.56);
+	-webkit-box-shadow: 13px 16px 14px -6px rgba(0,0,0,0.56);
+	-moz-box-shadow: 13px 16px 14px -6px rgba(0,0,0,0.56);
+}
+
+#detail_wrapper #info_right {
+	width: 500px;
+	height: 600px;
+}
+
+#detail_wrapper #info_right .info_right_wrap {
+	border-bottom: 1px solid #ABABAB;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	line-height: 35px;
+}
+
+#detail_wrapper #info_right h3 {
+	display:inline;
+	font-size: 25px;
+	color: #132287;
+	margin-right: 20px;
+}
+
+#detail_wrapper #info_right li {
+	color: black;
+}
+
+#detail_wrapper #info_right .info_right_wrap span {
+	display: inline-block;
+	width: 100px;
+}
+
+#detail_wrapper #info_right .info_right_wrap .info_genre {
+	display: inline-block;
+	width: auto;
+}
+
+#detail_wrapper #info_right .info_right_wrap #info_price {
+	width: auto;
+	font-size: 20px;
+	color: red;
+	font-weight: 700;
+}
+
+#detail_wrapper #info_right .order_btn {
+	width: 200px;
+	height: 50px;
+	background-color: #132287; 
+	border: none;
+	color: white;
+	padding: 15px 30px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 5px 10px;
+	cursor: pointer;
+}
+
+#detail_wrapper #info_right .order_btn:first-child {
+	margin-left: 40px;
+}
+
+#detail_wrapper #detail_info_img {
+	width: 1000px;
+}
 
 
 
