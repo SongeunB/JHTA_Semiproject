@@ -38,10 +38,10 @@
 						<li><span>배송비</span> 한권만 사도 무료배송</li>
 					</ul>
 				</div>
-				<div id="order_btn_wrap">
-					<a href="${cp}/cart">
+				<div id="order_btn_wrap" class="flex-between">
+					<a href="${cp}/cart" class="order_btn_a">
 						<input type="button" value="장바구니 담기" class="order_btn"></a>
-					<a href="${cp}/order">
+					<a href="${cp}/order" class="order_btn_a">
 						<input type="button" value="바로주문" class="order_btn"></a>
 				</div>
 			</div>
