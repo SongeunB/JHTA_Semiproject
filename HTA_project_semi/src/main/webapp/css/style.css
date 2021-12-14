@@ -753,8 +753,14 @@ main {
 	margin-left: 40px;
 }
 
-#detail_wrapper #detail_info_img {
+#detail_wrapper #detail_bottom .info_right_wrap {
+	text-align: center;
+	margin-top: 20px;
+}
+
+#detail_wrapper #detail_bottom #detail_info_img {
 	width: 1000px;
+	margin: 20px 0px 50px 50px;
 }
 
 

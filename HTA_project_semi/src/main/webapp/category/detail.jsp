@@ -39,8 +39,10 @@
 					</ul>
 				</div>
 				<div id="order_btn_wrap">
-					<input type="button" value="장바구니 담기" class="order_btn">
-					<input type="button" value="바로주문" class="order_btn">
+					<a href="${cp}/cart">
+						<input type="button" value="장바구니 담기" class="order_btn"></a>
+					<a href="${cp}/order">
+						<input type="button" value="바로주문" class="order_btn"></a>
 				</div>
 			</div>
 		</div>
