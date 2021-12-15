@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import semi.dao.BannerDao;
 import semi.dao.BooksDao;
 import semi.dao.CategoryDao;
 
@@ -21,6 +22,7 @@ public class MainController extends HttpServlet {
 		req.setAttribute("category", new CategoryDao().getCategory());
 		req.setAttribute("newList", BooksDao.getInstance().newList());
 		req.setAttribute("bestList", BooksDao.getInstance().bestList());
+		req.setAttribute("banner", new BannerDao().getBanner());
 		req.getRequestDispatcher("index.jsp").forward(req, resp);
 	}
 }
