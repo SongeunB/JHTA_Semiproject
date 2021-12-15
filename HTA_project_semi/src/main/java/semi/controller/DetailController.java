@@ -21,7 +21,6 @@ public class DetailController extends HttpServlet{
 		String id_item=req.getParameter("id_item");
 		BooksDao dao=BooksDao.getInstance();
 		BooksVo vo=dao.detail(id_item);
-		System.out.println(vo.getAuthor());
 		req.setAttribute("vo", vo);
 		req.getRequestDispatcher("/index.jsp").forward(req, resp);
 	}

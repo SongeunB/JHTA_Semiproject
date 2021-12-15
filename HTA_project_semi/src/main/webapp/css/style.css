@@ -729,10 +729,10 @@ main {
 }
 
 #detail_wrapper #info_right h3 {
-	display:inline;
+	/* display:inline; */
 	font-size: 25px;
 	color: #132287;
-	margin-right: 20px;
+	/* margin-right: 20px; */
 }
 
 #detail_wrapper #info_right li {
@@ -745,7 +745,7 @@ main {
 
 #detail_wrapper #info_right .info_right_wrap span {
 	display: inline-block;
-	width: 100px;
+	width: auto;
 }
 
 #detail_wrapper #info_right .info_right_wrap .info_genre {
@@ -753,8 +753,12 @@ main {
 	width: auto;
 }
 
-#detail_wrapper #info_right .info_right_wrap .info_genre:hover {
+#detail_wrapper .info_right_wrap .info_genre:hover {
 	text-decoration: underline;
+}
+
+#detail_wrapper #info_right .info_right_wrap #info_org_title {
+	width: auto;
 }
 
 #detail_wrapper #info_right .info_right_wrap #info_price {
@@ -762,6 +766,13 @@ main {
 	font-size: 20px;
 	color: red;
 	font-weight: 700;
+}
+#detail_wrapper #info_right #order_form label {
+	display: inline-block;
+}
+
+#detail_wrapper #info_right #order_btn_wrap {
+	margin-top: 20px;
 }
 
 #detail_wrapper #info_right .order_btn_a {
@@ -784,6 +795,10 @@ main {
 	cursor: pointer;
 }
 
+#detail_wrapper #info_right .order_btn:hover {
+	background-color: #4254CA; 
+}
+
 #detail_wrapper #info_right .order_btn:first-child {
 	margin-left: 20px;
 }
@@ -801,6 +816,26 @@ main {
 	width: 1000px;
 	margin: 20px 0px 50px 50px;
 }
+
+
+/***************장바구니***************/
+#cart_wrapper h1{
+	border-bottom:1px solid black;
+}
+#cart_wrapper #cart_list_wrap {
+	width: 600px;
+	margin: 0 auto;
+}
+#cart_wrapper #cart_list_wrap .cart_list {
+	border: 1px solid gray;
+	height: 200px;
+}
+
+#cart_wrapper #cart_list_wrap .cart_list .img_cover {
+	width: 100px;
+}
+
+
 
 
 
