@@ -10,7 +10,6 @@
 		<div class="main-right">
 				<div class="main-category" onmouseover="showCategory(event)" onmouseout="removeCategory(event)">
 					<div class="main-category-title-wrap">
-						
 				<c:set var="ctdummy" value="${fn:split(category[0],'@')[0]}"/>
 					<a href="${pageContext.request.contextPath}/category?genre=${ctdummy}">
 						<h3>${ctdummy}</h3>
@@ -31,7 +30,7 @@
 								</a>
 								</div>
 								<ul class="main-category-lists" style="display:none;">
-									<li><a href="${pageContext.request.contextPath}/category?genreDetail=${ct[1]}&genre=${ct[0]}">${ct[1]}}</a></li>
+									<li><a href="${pageContext.request.contextPath}/category?genreDetail=${ct[1]}&genre=${ct[0]}">${ct[1]}</a></li>
 					</c:when>
 					<c:otherwise>
 						<li><a href="${pageContext.request.contextPath}/category?genreDetail=${ct[1]}&genre=${ct[0]}">${ct[1]}</a></li>
@@ -47,20 +46,24 @@
 			<div class="audio-main-left">
 
 				
+				
 				<div id="audio-book" class="audio-section">
+				
+					<c:choose>
 					
-					<div class="audio-header">
-						<h2>"<%=request.getParameter("keyword") %>" 에 대한 검색 '총 <%=request.getAttribute("count") %>개'</h2>
-					</div>
+					<c:when test="${empty genreDetailList}">
+						<div class="audio-header">
+							<h2>"<%=request.getAttribute("genre") %>" 분야</h2>
+						</div>
 					
-					<div class="audio-body">
-						<ul class="audio-flex-between2">
-						<c:forEach  var="vo" items="${list }"> <!-- @@@@@@@@@@@@@@@@@@@@@@ -->
-							<li>
-								<a href="#">
-									<div class="image-wrap ">
-										<center><a href="${pageContext.request.contextPath}/detail?id_item=${vo.id_item}"><img src="<%=request.getContextPath() %>/img_cover/${vo.id_item }.jpg" class="img_search"></a></center>
-									</div>
+						<div class="audio-body">
+							<ul class="audio-flex-between2">
+							<c:forEach  var="vo" items="${genreList }"> <!-- @@@@@@@@@@@@@@@@@@@@@@ -->
+								<li>
+									<a href="#">
+										<div class="image-wrap ">
+											<center><a href="${pageContext.request.contextPath}/detail?id_item=${vo.id_item}"><img src="<%=request.getContextPath() %>/img_cover/${vo.id_item }.jpg" class="img_search"></a></center>
+										</div>
 									
 									<h3>${vo.title }</h3>
 									<span class="author-1">${vo.author }</span>
@@ -68,9 +71,35 @@
 									<span class="price">${vo.price }</span> 
 								</a>
 							</li>
-							</c:forEach>
 							
-
+							</c:forEach>
+							</c:when>
+							
+							<c:otherwise>
+								<div class="audio-header">
+							<h2>"<%=request.getAttribute("genre") %>" > "<%=request.getAttribute("genreDetail") %>" 분야</h2>
+						</div>
+					
+						<div class="audio-body">
+							<ul class="audio-flex-between2">
+							<c:forEach  var="vo" items="${genreDetailList }"> <!-- @@@@@@@@@@@@@@@@@@@@@@ -->
+								<li>
+									<a href="#">
+										<div class="image-wrap ">
+											<center><a href="${pageContext.request.contextPath}/detail?id_item=${vo.id_item}"><img src="<%=request.getContextPath() %>/img_cover/${vo.id_item }.jpg" class="img_search"></a></center>
+										</div>
+									
+									<h3>${vo.title }</h3>
+									<span class="author-1">${vo.author }</span>
+									<span class="author-2">${vo.org_author }</span>
+									<span class="price">${vo.price }</span> 
+								</a>
+							</li>
+							
+							</c:forEach>
+							</c:otherwise>
+							
+						</c:choose>
 						<!-- <button type="button" class="btn-right"></button> -->
 						
 
