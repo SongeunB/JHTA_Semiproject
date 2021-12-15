@@ -127,6 +127,7 @@ input, textarea {
 	width: 52px;
 	height: 100%;
 	background-color: #132287;
+	color: white; /* @@@@@@@@@@@@@@@@@@@@@@@@ */
 }
 
 #main-header #main_right {

@@ -10,8 +10,8 @@
 		<div class="main-right">
 				<div class="main-category" onmouseover="showCategory(event)" onmouseout="removeCategory(event)">
 					<div class="main-category-title-wrap">
-						<a href="/song_semi/edit/category1.jsp">
 				<c:set var="ctdummy" value="${fn:split(category[0],'@')[0]}"/>
+					<a href="${pageContext.request.contextPath}/category?genre=${ctdummy}">
 						<h3>${ctdummy}</h3>
 					</a>
 					</div>
