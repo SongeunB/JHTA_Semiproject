@@ -13,12 +13,12 @@ public class JdbcUtil {
 			Class.forName("oracle.jdbc.OracleDriver");
 			String url="jdbc:oracle:thin:@localhost:1521:xe";
 			con=DriverManager.getConnection(url,"c##scott","tiger");	
-			System.out.println("dbÁ¢¼Ó¼º°ø!");
+			System.out.println("dbì ‘ì†");
 			return con;
 		}catch(ClassNotFoundException ce) {
-			System.out.println("µå¶óÀÌ¹ö·Îµù½ÇÆĞ:"+ ce.getMessage());
+			System.out.println("í…ŒìŠ¤íŠ¸"+ ce.getMessage());
 		}catch(SQLException se) {
-			System.out.println("dbÁ¢¼Ó½ÇÆĞ:" + se.getMessage());
+			System.out.println("dbì„±ê³µ:" + se.getMessage());
 		}
 		return null;
 	}
