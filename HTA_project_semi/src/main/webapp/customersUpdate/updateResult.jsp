@@ -10,10 +10,10 @@
 <body>
 <c:choose>
 	<c:when test="${requestScope.result=='success' }">
-		<h1 style="text-align:center;">회원가입이 완료되었습니다.</h1><br>
+		<h1 style="text-align:center;">회원정보 수정이 완료되었습니다.</h1><br>
 	</c:when>
 	<c:otherwise>
-		<h1>회원가입 실패</h1>
+		<h1 style="text-align:center;">회원정보 수정 실패</h1>
 	</c:otherwise>
 </c:choose>
 <div style="text-align:center;">

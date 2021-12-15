@@ -1,7 +1,7 @@
 package semi.vo;
 
 public class CustomersVo {
-	private String id;
+	private String id_customer;
 	private String pwd;
 	private String name;
 	private String email;
@@ -9,15 +9,25 @@ public class CustomersVo {
 	private String address;
 	
 	public CustomersVo() {}
-	public CustomersVo(String id, String pwd, String name, String email, String phone, String address) {
-		
+	
+	public CustomersVo(String id_customer, String pwd, String name, String email, String phone, String address) {
+		super();
+		this.id_customer = id_customer;
+		this.pwd = pwd;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
 	}
-	public String getId() {
-		return id;
+	
+	public String getId_customer() {
+		return id_customer;
 	}
-	public void setId(String id) {
-		this.id = id;
+
+	public void setId_customer(String id_customer) {
+		this.id_customer = id_customer;
 	}
+
 	public String getPwd() {
 		return pwd;
 	}

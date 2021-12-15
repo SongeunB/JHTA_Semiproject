@@ -15,29 +15,45 @@ import semi.vo.CustomersVo;
 public class CustomersUpdateFormController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id=req.getParameter("id");
+		req.setAttribute("header1", "header.jsp");
+		req.setAttribute("body", "/customersUpdate/updateForm.jsp");
+		req.setAttribute("footer", "footer.jsp");
+		req.getRequestDispatcher("index.jsp").forward(req, resp);
+		
+		String id_customer=req.getParameter("id_customer");
 		CustomersDao dao=CustomersDao.getInstance();
-		CustomersVo vo=dao.select(id);
+		CustomersVo vo=dao.select(id_customer);
 		if(vo==null) {
-			
+			req.setAttribute("result", "fail");
 		}else {
 			req.setAttribute("vo", vo);
-			req.getRequestDispatcher("/index.jsp").forward(req, resp);
+			
+			req.setAttribute("header1", "header.jsp");
+			req.setAttribute("body", "/customersUpdate/updateForm.jsp");
+			req.setAttribute("footer", "footer.jsp");
+			req.getRequestDispatcher("index.jsp").forward(req, resp);
 		}
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
-		String id=req.getParameter("id");
+		String id_customer=req.getParameter("id_customer");
 		String pwd=req.getParameter("pwd");
 		String name=req.getParameter("name");
 		String email=req.getParameter("email");
 		String phone=req.getParameter("phone");
 		String address=req.getParameter("address");
 		
-		CustomersVo vo=new CustomersVo(id,pwd,name,email,phone,address);
+		CustomersVo vo=new CustomersVo(id_customer,pwd,name,email,phone,address);
 		int n=CustomersDao.getInstance().update(vo);
-		
-		req.getRequestDispatcher("/index.jsp").forward(req, resp);
+		if(n>0) {
+			req.setAttribute("result", "success");
+		}else {
+			req.setAttribute("result", "fail");
+		}
+		req.setAttribute("header1", "header.jsp");
+		req.setAttribute("body", "/customersUpdate/updateResult.jsp");
+		req.setAttribute("footer", "footer.jsp");
+		req.getRequestDispatcher("index.jsp").forward(req, resp);
 	}
 }

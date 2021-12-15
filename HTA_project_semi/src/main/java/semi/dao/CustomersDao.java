@@ -23,7 +23,7 @@ public class CustomersDao {
 			con=JdbcUtil.getCon();
 			String sql="insert into customers values(?,?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, vo.getId());
+			pstmt.setString(1, vo.getId_customer());
 			pstmt.setString(2, vo.getPwd());
 			pstmt.setString(3, vo.getName());
 			pstmt.setString(4, vo.getEmail());
@@ -39,16 +39,16 @@ public class CustomersDao {
 	}
 	
 	public boolean isMember(HashMap<String,String> map) {
-		String id=map.get("id");
+		String id_customer=map.get("id_customer");
 		String pwd=map.get("pwd");
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 			try {
 				con=JdbcUtil.getCon();
-				String sql="select * from customers where id=? and pwd=?";
+				String sql="select * from customers where id_customer=? and pwd=?";
 				pstmt=con.prepareStatement(sql);
-				pstmt.setString(1, id);
+				pstmt.setString(1, id_customer);
 				pstmt.setString(2, pwd);
 				rs=pstmt.executeQuery();
 				if(rs.next()) {
@@ -68,14 +68,14 @@ public class CustomersDao {
 		PreparedStatement pstmt=null;
 		try {
 			con=JdbcUtil.getCon();
-			String sql="update customers set pwd=?,name=?,email=?,phone=?,address=? where id=?";
+			String sql="update customers set pwd=?,name=?,email=?,phone=?,address=? where id_customer=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, vo.getPwd());
 			pstmt.setString(2, vo.getName());
 			pstmt.setString(3, vo.getEmail());
 			pstmt.setString(4, vo.getPhone());
 			pstmt.setString(5, vo.getAddress());
-			pstmt.setString(6, vo.getId());
+			pstmt.setString(6, vo.getId_customer());
 			return pstmt.executeUpdate();
 		}catch(SQLException s) {
 			s.printStackTrace();
@@ -85,15 +85,15 @@ public class CustomersDao {
 		}
 	}
 	
-	public CustomersVo select(String id) {
+	public CustomersVo select(String id_customer) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		try {
 			con=JdbcUtil.getCon();
-			String sql="select * from customers where id=?";
+			String sql="select * from customers where id_customer=?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setString(1, id_customer);
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
 				String pwd=rs.getString("pwd");
@@ -102,7 +102,7 @@ public class CustomersDao {
 				String phone=rs.getString("phone");
 				String address=rs.getString("address");
 				
-				CustomersVo vo=new CustomersVo(id,pwd,name,email,phone,address);
+				CustomersVo vo=new CustomersVo(id_customer,pwd,name,email,phone,address);
 				return vo;
 			}
 			return null;
@@ -112,5 +112,30 @@ public class CustomersDao {
 		}finally {
 			JdbcUtil.close(con,pstmt,rs);
 		}
+	}
+	
+	public int joinIdCheck(String id_customer){
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		int result = -1;
+		try {
+			con = JdbcUtil.getCon();
+			String sql = "select id_customer from customers where id_customer=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id_customer);
+			rs = pstmt.executeQuery();
+			if(rs.next()){	
+				result = 0;
+			}else{
+				result = 1;
+			}
+			System.out.println("아이디 중복체크 결과 : "+ result);
+		} catch (SQLException se) {
+			se.printStackTrace();
+		} finally {
+			JdbcUtil.close(con, pstmt, rs);
+		}
+		return result;
 	}
 }

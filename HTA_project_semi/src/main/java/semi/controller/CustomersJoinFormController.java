@@ -26,15 +26,23 @@ public class CustomersJoinFormController extends HttpServlet{
 		req.setAttribute("footer", "/footer.jsp");
 		
 		resp.setCharacterEncoding("utf-8");
-		String id=req.getParameter("id");
+		String id_customer=req.getParameter("id_customer");
 		String pwd=req.getParameter("pwd");
 		String name=req.getParameter("name");
 		String email=req.getParameter("email");
 		String phone=req.getParameter("phone");
 		String address=req.getParameter("address");
 		
-		CustomersVo vo=new CustomersVo(id,pwd,name,email,phone,address);
-		CustomersDao.getInstance().insert(vo);
-		req.getRequestDispatcher("/index.jsp").forward(req, resp);
+		CustomersVo vo=new CustomersVo(id_customer,pwd,name,email,phone,address);
+		int n=CustomersDao.getInstance().insert(vo);
+		if(n>0) {
+			req.setAttribute("result", "success");
+		}else {
+			req.setAttribute("result", "fail");
+		}
+		req.setAttribute("header1", "/header.jsp");
+		req.setAttribute("body", "/join/joinResult.jsp");
+		req.setAttribute("footer", "/footer.jsp");
+		req.getRequestDispatcher("index.jsp").forward(req, resp);
 	}
 }
