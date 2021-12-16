@@ -11,15 +11,55 @@ import java.util.Calendar;
 
 import db.JdbcUtil;
 import semi.vo.BooksVo;
+import semi.vo.bookDetailVo;
 
 public class BooksDao {
 	
 	private static BooksDao instance = new BooksDao();
 	
-	private BooksDao() {}
+	public BooksDao() {}
 	
 	public static BooksDao getInstance() {
 		return instance;
+	}
+	public void insertBooks(BooksVo vo, bookDetailVo vo1) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		PreparedStatement pstmt1=null;
+		ResultSet rs=null;
+		
+		try {
+			con=JdbcUtil.getCon();
+			String sql="insert into books values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql1="insert into book_detail values(?,?,?)";
+		
+			pstmt=con.prepareStatement(sql);
+			pstmt1=con.prepareStatement(sql1);
+			pstmt.setString(1, vo.getId_item());
+			pstmt.setInt(2, vo.getPrice());
+			pstmt.setString(3, vo.getStatus());
+			pstmt.setInt(4, vo.getStock());
+			pstmt.setString(5, vo.getTitle());
+			pstmt.setString(6, vo.getAuthor());
+			pstmt.setString(7, vo.getTranslator());
+			pstmt.setString(8, vo.getPublisher());
+			pstmt.setDate(9, vo.getYmd());
+			pstmt.setString(10, vo.getGenre());
+			pstmt.setString(11, vo.getGenre_detail());
+			pstmt.setString(12, vo.getOrg_title());
+			pstmt.setString(13, vo.getOrg_author());
+			pstmt1.setString(1, vo1.getId_item());
+			pstmt1.setString(2, vo1.getText());
+			pstmt1.setInt(3, vo1.getImg_src());
+			pstmt.executeUpdate();
+			pstmt1.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("오류: " + e.getMessage());
+		}finally {
+			JdbcUtil.close(con, pstmt, rs);
+		}
+		
 	}
 	
 	public ArrayList<BooksVo> search(String keyword) {
@@ -60,7 +100,8 @@ public class BooksDao {
 				String genre_detail = rs.getString("genre_detail");
 				String org_title = rs.getString("org_title");
 				String org_author = rs.getString("org_author");
-				BooksVo vo = new BooksVo(id_item, price, status, stock, title, author, translator, publisher, ymd, genre, genre_detail, org_title, org_author);
+				BooksVo vo = new BooksVo(id_item, price, status, stock, title, author, translator, publisher, ymd, genre, genre_detail,
+						org_title, org_author);
 				list.add(vo);
 			}
 			return list;
