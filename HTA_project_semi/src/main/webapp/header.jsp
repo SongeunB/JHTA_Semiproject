@@ -62,7 +62,7 @@ function removeCategory(e){
 						<li><a href="${cp}/joinForm">회원가입</a></li>
 					</c:when>
 					<c:otherwise>
-						<li>[${sessionScope.id_customer }님 반갑습니다.]  <a href="${cp}/logout">로그아웃</a></li>
+						<li><span style="color:white;">[${sessionScope.id_customer }님 반갑습니다.]</span>  <a href="${cp}/logout">로그아웃</a></li>
 						<li><a href="${cp}/updateForm">정보수정</a></li>
 					</c:otherwise>
 				</c:choose>

@@ -8,6 +8,6 @@
 	<div>${requestScope.errMsg }</div>
 	<input type="submit" value="로그인"><br>	
 </form>
-	<input type="button" value="아이디찾기">
-	<input type="button" value="비밀번호찾기">
+	
+	<a href="${pageContext.request.contextPath}/findId">아이디 찾기</a> | <a href="${pageContext.request.contextPath}/findPwd">비밀번호 찾기</a>
 </div>

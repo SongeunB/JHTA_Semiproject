@@ -13,7 +13,7 @@ import semi.dao.BannerDao;
 import semi.dao.BooksDao;
 import semi.dao.CategoryDao;
 @WebServlet("/logout")
-public class LogoutController extends HttpServlet{
+public class CustomerLogoutController extends HttpServlet{
 @Override
 protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session= req.getSession();

@@ -27,7 +27,6 @@ public class CustomersUpdateFormController extends HttpServlet{
 			req.setAttribute("result", "fail");
 		}else {
 			req.setAttribute("vo", vo);
-			
 			req.setAttribute("header1", "header.jsp");
 			req.setAttribute("body", "/customersUpdate/updateForm.jsp");
 			req.setAttribute("footer", "footer.jsp");

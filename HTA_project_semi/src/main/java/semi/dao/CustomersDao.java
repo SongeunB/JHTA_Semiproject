@@ -130,12 +130,58 @@ public class CustomersDao {
 			}else{
 				result = 1;
 			}
-			System.out.println("¾ÆÀÌµð Áßº¹Ã¼Å© °á°ú : "+ result);
+			System.out.println("ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ßºï¿½Ã¼Å© ï¿½ï¿½ï¿½ : "+ result);
 		} catch (SQLException se) {
 			se.printStackTrace();
 		} finally {
 			JdbcUtil.close(con, pstmt, rs);
 		}
 		return result;
+	}
+	
+	public String findId(String name, String email) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=JdbcUtil.getCon();
+			String sql="select id_customer from customers where name=? and email=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, email);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getString("id_customer");	
+			}
+			return null;
+		}catch(SQLException se) {
+			se.printStackTrace();
+			return null;
+		}finally {
+			JdbcUtil.close(con, pstmt, rs);
+		}
+	}
+	
+	public String findPwd(String id_customer, String email) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=JdbcUtil.getCon();
+			String sql="select pwd from customers where id_customer=? and email=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id_customer);
+			pstmt.setString(2, email);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getString("pwd");	
+			}
+			return null;
+		}catch(SQLException se) {
+			se.printStackTrace();
+			return null;
+		}finally {
+			JdbcUtil.close(con, pstmt, rs);
+		}
 	}
 }

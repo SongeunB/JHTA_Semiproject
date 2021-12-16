@@ -16,7 +16,7 @@ import semi.dao.CategoryDao;
 import semi.dao.CustomersDao;
 
 @WebServlet("/loginForm")
-public class LoginFormController extends HttpServlet {
+public class CustomerLoginFormController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -49,7 +49,7 @@ public class LoginFormController extends HttpServlet {
 			req.getRequestDispatcher("index.jsp").forward(req, resp);
 			
 		}else { 	
-			req.setAttribute("errMsg", "¾ÆÀÌµğ ¶Ç´Â ºñ¹Ğ¹øÈ£°¡ ¸ÂÁö ¾Ê½À´Ï´Ù");
+			req.setAttribute("errMsg", "ì•„ì´ë””ë‚˜ ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë¦½ë‹ˆë‹¤");
 			req.setAttribute("header1", "header.jsp");
 			req.setAttribute("body", "/login/loginForm.jsp");
 			req.setAttribute("footer", "footer.jsp");

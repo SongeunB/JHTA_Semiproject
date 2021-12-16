@@ -1,15 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <h1 style="text-align:center;">회원 가입</h1>
-    
+<script type="text/javascript">
+var xhr=null;
+function idCheck(){
+	xhr=new XMLHttpRequest();
+	xhr.onreadystatechange=success;
+	let id_customer=document.getElementById("id_customer").value;
+	if(id_customer==""){	
+		document.getElementById("idcheck").innerHTML="";
+		return;
+	}
+	xhr.open('get','idcheck.jsp?id_customer=' + id_customer, true);
+	xhr.send();
+}
+function success(){
+	if(xhr.readyState==4 && xhr.status==200){
+					
+		let xml=xhr.responseXML;
+		let exist=xml.getElementsByTagName("exist")[0].textContent;
+		let span=document.getElementById("idcheck");
+		if(exist=='true'){
+			span.innerText = "중복된 아이디가 존재합니다";
+		}else {
+			span.innerText = "사용 가능한 아이디입니다.";
+		}
+	}
+}
+</script>
+
 <div style="text-align:center;">
 <form method="post" action="${pageContext.request.contextPath }/joinForm" name="cj" onsubmit="return check();">
-	아이디 <input type="text" name="id_customer"><input type="button" value="중복체크" onclick="winopen()"><br>
+	아이디 <input type="text" name="id_customer" id="id_customer" onkeyup="idCheck()"><span id="idcheck"></span><br>
 	비밀번호 <input type="password" name="pwd"><br>
 	이름 <input type="text" name="name"><br>
 	이메일 <input type="text" name="email"><br>
 	전화번호 <input type="text" name="phone"><br>
-	주소 <input type="text" name="address"><br>
+	주소 <input type="text" name="address"><br>		<!-- 주소 API 사용해보기 -->
 	<input type="submit" value="가입">	
 </form>
 
@@ -53,13 +79,5 @@
 		}
 	}
 	
-	function winopen(){
-		if(document.cj.id_customer.value =="" || document.cj.id_customer.value.length < 0){
-			alert("아이디를 입력해주세요")
-			document.cj.id_customer.focus();
-		}else{
-			window.open("joinIdCheck.jsp?id_customer="+document.cj.id_customer.value,"","width=500, height=300");
-		}
-	}
 </script>
 </div>
