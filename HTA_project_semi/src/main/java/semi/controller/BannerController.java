@@ -58,6 +58,7 @@ public class BannerController extends HttpServlet{
 						jo.put("title", bookVo.getTitle());
 						jo.put("author", bookVo.getAuthor());
 					}
+					break;
 			case 5: ArrayList<BannerVo> list=BannerDao.getInstance().getList();
 					if(list==null) { //배너리스트 조회
 						result=-1;
@@ -78,6 +79,7 @@ public class BannerController extends HttpServlet{
 						result=1;
 						msg="조회성공";
 					}
+					break;
 			default: msg="전송오류발생";
 					break;
 		}
