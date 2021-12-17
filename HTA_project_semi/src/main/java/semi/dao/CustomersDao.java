@@ -184,4 +184,20 @@ public class CustomersDao {
 			JdbcUtil.close(con, pstmt, rs);
 		}
 	}
+	public int delete(String id_customer) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		try {
+			con=JdbcUtil.getCon();
+			String sql="delete from customers where id_customer=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1,id_customer);
+			return pstmt.executeUpdate();
+		}catch(SQLException s) {
+			s.printStackTrace();
+			return -1;
+		}finally {
+			JdbcUtil.close(con, pstmt, null);
+		}
+	}
 }

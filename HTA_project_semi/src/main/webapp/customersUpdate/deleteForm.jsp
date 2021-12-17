@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	
+</script>
 </head>
 <body>
 <h1 style="text-align:center;">회원탈퇴</h1>
@@ -13,7 +16,8 @@
 <form method="post" action="${pageContext.request.contextPath }/deleteId">
 	아이디	<input type="text" name="id_customer" value="${sessionScope.id_customer }" readonly="readonly"><br>
 	비밀번호 	<input type="password" name="pwd"><br>
-	<
+	<div>${requestScope.errMsg }</div>
+	<input type="submit" value="탈퇴">
 </form>
 </div>
 </body>

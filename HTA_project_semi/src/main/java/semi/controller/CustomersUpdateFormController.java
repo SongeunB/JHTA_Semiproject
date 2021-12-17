@@ -41,7 +41,9 @@ public class CustomersUpdateFormController extends HttpServlet{
 		String name=req.getParameter("name");
 		String email=req.getParameter("email");
 		String phone=req.getParameter("phone");
-		String address=req.getParameter("address");
+		String address1=(String)req.getParameter("address1");
+		String address2=(String)req.getParameter("address2");
+		String address=address1+address2;
 		
 		CustomersVo vo=new CustomersVo(id_customer,pwd,name,email,phone,address);
 		int n=CustomersDao.getInstance().update(vo);
