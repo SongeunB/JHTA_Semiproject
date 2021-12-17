@@ -45,7 +45,7 @@ public class CustomerLoginFormController extends HttpServlet {
 			req.setAttribute("category", new CategoryDao().getCategory());
 			req.setAttribute("newList", BooksDao.getInstance().newList());
 			req.setAttribute("bestList", BooksDao.getInstance().bestList());
-			req.setAttribute("banner", new BannerDao().getBanner());
+			req.setAttribute("banner", BannerDao.getInstance().getBanner());
 			req.getRequestDispatcher("index.jsp").forward(req, resp);
 			
 		}else { 	

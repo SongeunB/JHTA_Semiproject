@@ -52,9 +52,9 @@
 						<div class="audio-slide-wrap" onclick="location.href='${pageContext.request.contextPath}/detail?id_item=${banner.id_item}';" style="background: linear-gradient(to right, ${banner.left_color}, ${banner.right_color});">
 							<div class="audio-slide audio-flex-between">
 								<img src="img_cover/${banner.id_item}.jpg">
-								<div class="txt-wrap" style="height:220px; width:450px;">
-									<h3 style="font-style:italic;color:white;">${banner.sentence}</h3>
-									<p style="color:white;">${banner.author} &nbsp;『${banner.title}』</p>
+								<div class="txt-wrap" style="height:220px; width:450px; color:${banner.font_color};">
+									<h3 style="font-style:italic;">${banner.sentence}</h3>
+									<p>${banner.author} &nbsp;『${banner.title}』</p>
 								</div>
 							</div>
 
