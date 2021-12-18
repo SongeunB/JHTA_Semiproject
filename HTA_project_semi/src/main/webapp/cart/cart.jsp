@@ -43,17 +43,25 @@
 		span2.innerHTML=totalPrice;
 	}
 	
-	function order() {
+	function orderChd() {
 		var listCheck = document.getElementsByName("listCheck");
 		var listIdCart = document.getElementsByName("listIdCart");
 		for (var i=0; i<listCheck.length; i++){
 			if(listCheck[i].checked) {
-				
-				
-				
-				xhr.open('get','${cp}/order?id_cart='+listIdCart[i].value,true);
-				xhr.send();
+				document.myForm.action="${cp}/order?id_cart="+listIdCart[i].value; 
+				document.myForm.method="post"; 
+				document.myForm.submit();
 			}
+		}
+	}
+	
+	function orderAll() {
+		var listCheck = document.getElementsByName("listCheck");
+		var listIdCart = document.getElementsByName("listIdCart");
+		for (var i=0; i<listCheck.length; i++){
+			document.myForm.action="${cp}/order?id_cart="+listIdCart[i].value; 
+			document.myForm.method="post"; 
+			document.myForm.submit();
 		}
 	}
 </script>
@@ -136,8 +144,8 @@
 				</tr>
 			</table>
 			<div class="order_btn_wrap" class="flex-between">
-				<input type="submit" value="선택한 상품 주문하기" class="order_btn"  onclick="order()">
-				<input type="submit" value="전체 상품 주문하기" class="order_btn"  onclick="order()">
+				<input type="submit" value="선택한 상품 주문하기" class="order_btn"  onclick="orderChd()">
+				<input type="submit" value="전체 상품 주문하기" class="order_btn"  onclick="orderAll()">
 			</div>
 		</div>	
 	</div>
