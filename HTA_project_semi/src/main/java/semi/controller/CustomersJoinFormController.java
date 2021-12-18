@@ -15,23 +15,25 @@ public class CustomersJoinFormController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("header1", "/header.jsp");
-		req.setAttribute("body", "/join/joinForm.jsp");
+		req.setAttribute("body", "/join/joinFormCss.jsp");
 		req.setAttribute("footer", "/footer.jsp");
 		req.getRequestDispatcher("/index.jsp").forward(req, resp);
 	}
 	@Override
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("header1", "/header.jsp");
-		req.setAttribute("body", "/join/joinForm.jsp");
+		req.setAttribute("body", "/join/joinFormCss.jsp");
 		req.setAttribute("footer", "/footer.jsp");
 		
-		resp.setCharacterEncoding("utf-8");
+		req.setCharacterEncoding("utf-8");
 		String id_customer=req.getParameter("id_customer");
 		String pwd=req.getParameter("pwd");
 		String name=req.getParameter("name");
 		String email=req.getParameter("email");
 		String phone=req.getParameter("phone");
-		String address=req.getParameter("address");
+		String address1=(String)req.getParameter("address1");
+		String address2=(String)req.getParameter("address2");
+		String address=address1+address2;
 		
 		CustomersVo vo=new CustomersVo(id_customer,pwd,name,email,phone,address);
 		int n=CustomersDao.getInstance().insert(vo);
