@@ -22,7 +22,7 @@ protected void service(HttpServletRequest req, HttpServletResponse resp) throws 
 		req.setAttribute("body", "home.jsp");
 		req.setAttribute("footer", "footer.jsp");
 		req.setAttribute("category", new CategoryDao().getCategory());
-		req.setAttribute("newList", BooksDao.getInstance().newList());
+		req.setAttribute("newList", BooksDao.getInstance().newList(1));
 		req.setAttribute("bestList", BooksDao.getInstance().bestList());
 		req.setAttribute("banner", BannerDao.getInstance().getBanner());
 		req.getRequestDispatcher("index.jsp").forward(req, resp);

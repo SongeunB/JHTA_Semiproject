@@ -70,7 +70,7 @@
 						<h2>새로 나온 책</h2>
 						<p>최근 출간된 책을 만나보세요.</p>
 						
-						<a href="#" class="link-total">전체보기</a>
+						<a href="${pageContext.request.contextPath}/header/search?keyword=@1@" class="link-total">전체보기</a>
 					</div>
 
 					<div class="audio-body">
@@ -97,7 +97,7 @@
 						<h2>BEST 셀러</h2>
 						<p>지난 달 사람들이 많이 찾은 책을 만나보세요.</p>
 						
-						<a href="#" class="link-total">전체보기</a>
+						<a href="${pageContext.request.contextPath}/header/search?keyword=@2@" class="link-total">전체보기</a>
 					</div>
 
 					<div class="audio-body" style="margin-bottom:100px;">

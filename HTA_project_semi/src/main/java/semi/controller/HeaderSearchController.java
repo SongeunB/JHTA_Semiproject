@@ -19,6 +19,8 @@ public class HeaderSearchController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String k = req.getParameter("keyword");
+		BooksDao dao = BooksDao.getInstance();
+		ArrayList<BooksVo> list=new ArrayList<BooksVo>();
 		/*
 		String d = "";
 		String s = "";
@@ -33,8 +35,19 @@ public class HeaderSearchController extends HttpServlet {
 		}
 		System.out.println(s + " " + d);
 		*/
-		BooksDao dao = BooksDao.getInstance();
-		ArrayList<BooksVo> list = dao.search(k);
+		if(k.startsWith("@") && k.endsWith("@")) {
+			int n=Integer.parseInt(k.substring(1, k.length()-1));
+			switch(n) {
+				case 1: list=dao.newList(2);
+						req.setAttribute("msg", "최신순");
+						break;
+				case 2: list=dao.bestListTotal();
+						req.setAttribute("msg", "판매순");
+						break;
+			}
+		}else {
+			list = dao.search(k);
+		}
 		int b = 0;
 		for(BooksVo a:list) {
 			b++;

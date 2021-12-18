@@ -149,12 +149,15 @@ public class BooksDao {
 			JdbcUtil.close(con, pstmt, rs);
 		}
 	}
-	public ArrayList<BooksVo> newList(){
+	public ArrayList<BooksVo> newList(int n){
 		Connection con=null;
 		PreparedStatement pst=null;
 		ResultSet rs=null;
 		String sql="select * from (select * from books order by ymd desc)"
 				+ " where rownum<6";
+		if(n==2) {
+			sql="select * from books order by ymd desc";
+		}
 		ArrayList<BooksVo> list=new ArrayList<BooksVo>();
 		try {
 			con=JdbcUtil.getCon();
@@ -211,6 +214,45 @@ public class BooksDao {
 			pst=con.prepareStatement(sql);
 			pst.setString(1, maxDate);
 			pst.setString(2, minDate);
+			rs=pst.executeQuery();
+			while(rs.next()) {
+				String id=rs.getString("id_item");
+				int price=rs.getInt("price");
+				String status=rs.getString("status");
+				int stock=rs.getInt("stock");
+				String title=rs.getString("title");
+				String author=rs.getString("author");
+				String translator=rs.getString("translator");
+				String publisher=rs.getString("publisher");
+				Date ymd=rs.getDate("ymd");
+				String genre=rs.getString("genre");
+				String genre_detail=rs.getString("genre_detail");
+				String org_title=rs.getString("org_title");
+				String org_author=rs.getString("org_author");
+				list.add(new BooksVo(id,price,status,stock,title,author,translator,publisher,
+						ymd,genre,genre_detail,org_title,org_author));
+			}
+			return list;
+		}catch(SQLException se) {
+			se.printStackTrace();
+			return null;
+		}finally {
+			JdbcUtil.close(con, pst, rs);
+		}
+	}
+	public ArrayList<BooksVo> bestListTotal(){
+		Connection con=null;
+		PreparedStatement pst=null;
+		ResultSet rs=null;
+		String sql="select * from "
+				+ "(select id_item order_isbn, sum(item_count) tsum "
+				+ "from order_detail group by id_item "
+				+ "order by tsum desc)b1 right outer join books b2 "
+				+ "on order_isbn=b2.id_item";
+		ArrayList<BooksVo> list=new ArrayList<BooksVo>();
+		try {
+			con=JdbcUtil.getCon();
+			pst=con.prepareStatement(sql);
 			rs=pst.executeQuery();
 			while(rs.next()) {
 				String id=rs.getString("id_item");

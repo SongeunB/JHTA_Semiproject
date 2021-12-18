@@ -50,7 +50,16 @@
 				<div id="audio-book" class="audio-section">
 					
 					<div class="audio-header">
-						<h2>"<%=request.getParameter("keyword") %>" 에 대한 검색 '총 <%=request.getAttribute("count") %>개'</h2>
+						<h2>
+						<c:choose>
+						<c:when test="${empty msg}">
+						"<%=request.getParameter("keyword") %>" 에 대한 검색 '총 <%=request.getAttribute("count") %>개'
+						</c:when>
+						<c:otherwise>
+						${msg}으로 조회 '총 ${count}개'
+						</c:otherwise>
+						</c:choose>
+						</h2>
 					</div>
 					
 					<div class="audio-body">
