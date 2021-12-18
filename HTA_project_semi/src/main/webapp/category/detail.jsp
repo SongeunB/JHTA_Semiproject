@@ -27,7 +27,7 @@
 <main id="detail_wrapper" role="main">
 	<div id="detail_container" class="container">
 		<div id="detail_top" class="flex-between">
-		<img src="goods/update/${vo.bookimage}"/>
+			<img src="${cp}/img_cover/${vo.id_item}.jpg" id="cover_img">
 			<div id="info_right">
 				<div class="info_right_wrap">
 					<a href="${cp}/category?genre=${vo.genre}">
@@ -72,7 +72,7 @@
 							<input type="number" id="item_count" name="item_count" min="1" max="${vo.stock}" required="required">
 							<span> (재고수량 ${vo.stock}) </span>
 							<br>
-							<div id="order_btn_wrap" class="flex-between">
+							<div class="order_btn_wrap" class="flex-between">
 								<input type="button" value="장바구니 담기" class="order_btn" onclick="insert_cart()">
 								<input type="submit" value="바로주문" class="order_btn">
 								<a href="${cp}/goodsModify?id_item=${vo.id_item}" class="order_btn_a">
@@ -95,7 +95,7 @@
 					<a href="${cp}/category?genre=${vo.genre}&genre_detail=${vo.genre_detail}">
 						<span class="info_genre">${vo.genre_detail}</span></a></p>
 			</div>
-		<img src="goods/update/${vo.bookimage1}"/>
+			<img src="${cp}/image/detail_sample1.jpg" id="detail_info_img">
 		</div>
 		
 								

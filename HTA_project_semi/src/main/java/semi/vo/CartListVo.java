@@ -7,7 +7,9 @@ public class CartListVo {
 	private int item_count;
 	private int price;
 	private String title;
-	public CartListVo(String id_cart, String id_customer, String id_item, int item_count, int price, String title) {
+	private int stock;
+	public CartListVo(String id_cart, String id_customer, String id_item, int item_count, int price, String title,
+			int stock) {
 		super();
 		this.id_cart = id_cart;
 		this.id_customer = id_customer;
@@ -15,6 +17,7 @@ public class CartListVo {
 		this.item_count = item_count;
 		this.price = price;
 		this.title = title;
+		this.stock = stock;
 	}
 	public String getId_cart() {
 		return id_cart;
@@ -51,6 +54,12 @@ public class CartListVo {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
 	
 	

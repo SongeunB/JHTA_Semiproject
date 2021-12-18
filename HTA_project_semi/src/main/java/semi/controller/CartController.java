@@ -28,22 +28,18 @@ public class CartController extends HttpServlet {
 		req.setAttribute("body", "/cart/cart.jsp");
 		req.setAttribute("footer", "/footer.jsp");
 		
-		//String id_customer=(String)req.getSession().getAttribute("id");
-		String id_customer=req.getParameter("id");
-		//http://localhost:8081/semiproject/cart?id=user1
+		String id_customer=(String)req.getSession().getAttribute("id_customer");
 		
-		CartDao cdao=CartDao.getInstance();
-		ArrayList<CartListVo> list=cdao.select(id_customer); 
-		System.out.println("li:"+list);
+		CartDao dao=CartDao.getInstance();
+		ArrayList<CartListVo> list=dao.select(id_customer); 
 		
-		req.setAttribute("id_customer", id_customer);
 		req.setAttribute("list", list);
 		req.getRequestDispatcher("/index.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id_customer=req.getParameter("id_customer");
+		String id_customer=(String)req.getSession().getAttribute("id_customer");
 		String id_item=req.getParameter("id_item");
 		int item_count=Integer.parseInt(req.getParameter("item_count"));
 				
