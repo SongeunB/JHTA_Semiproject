@@ -68,7 +68,7 @@
 
 					<div class="audio-header">
 						<h2>새로 나온 책</h2>
-						<p>최근 출간된 책을 만나보세요.</p>
+						<p>최근 출간된 책 5권</p>
 						
 						<a href="${pageContext.request.contextPath}/header/search?keyword=@1@" class="link-total">전체보기</a>
 					</div>
@@ -95,7 +95,7 @@
 
 					<div class="audio-header">
 						<h2>BEST 셀러</h2>
-						<p>지난 달 사람들이 많이 찾은 책을 만나보세요.</p>
+						<p>지난 달 사람들이 많이 찾은 책 5권</p>
 						
 						<a href="${pageContext.request.contextPath}/header/search?keyword=@2@" class="link-total">전체보기</a>
 					</div>
