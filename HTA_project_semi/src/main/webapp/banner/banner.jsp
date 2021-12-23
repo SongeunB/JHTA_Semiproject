@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<main id="banner_wrapper" role="main" style="background:#f0fcff;">
+<main id="banner_wrapper" role="main" style="background:#f0fcff;padding-top:50px;padding-bottom:25px;">
 <div id="banner_container" class="container" style="width:900px;">
 <div id="total-wrap">
-<h1>CUSTOM BANNER</h1>
+<h1>BANNER</h1>
 <div id="audio-today" class="audio-section">
 	<div class="audio-header">
 		<h2></h2>

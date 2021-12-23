@@ -99,6 +99,7 @@ input, textarea {
 
 #main-header #logo {
 	margin-right: 50px;
+	margin-bottom: 20px;
 }
 
 #main-header .search_wrap {
@@ -111,6 +112,7 @@ input, textarea {
 	width: 582px;
 	height: 52px;
 	border: solid 2px #132287;
+	border-radius: 3px;
 }
 
 #main-header .search_wrap input {
@@ -132,6 +134,7 @@ input, textarea {
 	height: 100%;
 	background-color: #132287;
 	color: white; /* @@@@@@@@@@@@@@@@@@@@@@@@ */
+	cursor: pointer;
 }
 
 #main-header #main_right {
@@ -156,12 +159,15 @@ input, textarea {
 
 #main-header #navbar ul li {
 	display: inline-block;
-	margin-right: 5px;
+	margin: 2px 30px 2px;
 }
-
+#main-header #navbar ul li:hover{
+	text-shadow: 0 0 3px #c5e2f6;
+	transition: all 0.5s;
+}
 #main-header #navbar ul li a {
 	color: white;
-	font-size: 15px;
+	font-size: 16px;
 	font-weight: 700;
 }
 
@@ -914,6 +920,7 @@ main {
 
 #admin_wrapper .admin_wrap .admin_box:hover {
 	background-color: #132287;
+	transition: all 0.4s;
 }
 
 #admin_wrapper .admin_wrap .admin_box .admin_icon {
@@ -1037,8 +1044,8 @@ main {
 	}
 	#total-wrap h1{
 		margin-top: 20px;
-    	color: #c5e2f6;
-    	border-bottom: solid 1px #c5e2f6;
+    	color: #49689b;
+    	border-bottom: solid 1px #49689b;
 	}
 	.pickerTag{
 		color: gray;

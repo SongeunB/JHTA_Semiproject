@@ -60,18 +60,18 @@ function removeCategory(e){
 				<ul>
 				<c:choose>
 					<c:when test="${empty sessionScope.id_customer }">
-						<li><a href="${cp}/loginForm">로그인</a></li>
-						<li><a href="${cp}/joinForm">회원가입</a></li>
+						<li><a href="${cp}/loginForm"><i class="fas fa-user"></i>&nbsp; 로그인</a></li>
+						<li><a href="${cp}/joinForm"><i class="fas fa-users"></i>&nbsp; 회원가입</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><span style="color:white;">[${sessionScope.id_customer }님 반갑습니다.]</span>  <a href="${cp}/logout">로그아웃</a></li>
-						<li><a href="${cp}/updateForm">정보수정</a></li>
+						<li><span style="color:white;">[${sessionScope.id_customer }님 반갑습니다.] &nbsp; </span>  <a href="${cp}/logout"><i class="fas fa-user-check"></i>&nbsp; 로그아웃</a></li>
+						<li><a href="${cp}/updateForm"><i class="fas fa-pen"></i>&nbsp; 정보수정</a></li>
 					</c:otherwise>
 				</c:choose>
-					<li><a href="${cp}/cart">장바구니</a></li>
-					<li><a href="${cp}/order">주문내역</a></li>
+					<li><a href="${cp}/cart"><i class="fas fa-shopping-cart"></i>&nbsp; 장바구니</a></li>
+					<li><a href="${cp}/order"><i class="fas fa-list"></i>&nbsp; 주문내역</a></li>
 					<c:if test="${sessionScope.id_customer=='admin'}">
-					<li><a href="${cp}/admin">관리자페이지</a></li>
+					<li><a href="${cp}/admin"><i class="fas fa-wrench"></i>&nbsp; 관리자페이지</a></li>
 					</c:if>
 				</ul>
 		</div>
