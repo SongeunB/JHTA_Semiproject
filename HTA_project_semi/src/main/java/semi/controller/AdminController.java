@@ -13,8 +13,8 @@ public class AdminController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("header1", "/header.jsp");
-		req.setAttribute("cart", "/admin/admin.jsp");
+		req.setAttribute("body", "/admin/admin_main.jsp");
 		req.setAttribute("footer", "/footer.jsp");
-		req.getRequestDispatcher("/admin/admin2.jsp").forward(req, resp);
+		req.getRequestDispatcher("/index.jsp").forward(req, resp);
 	}
 }

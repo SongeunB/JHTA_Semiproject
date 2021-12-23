@@ -43,7 +43,7 @@ function removeCategory(e){
 <header id="main-header">
 		<div class="search_area">
 		
-		<a href="${cp}/home"><img src="<%=request.getContextPath() %>/image/logo1.png" id="logo"></a>
+		<a href="${cp}/home"><img src="<%=request.getContextPath() %>/image/logo.png" id="logo"></a>
 			<form action="${cp }/header/search">
 				<div class="search_wrap">
 					<input type="text" name="keyword">

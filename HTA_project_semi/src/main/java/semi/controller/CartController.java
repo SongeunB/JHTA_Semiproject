@@ -1,4 +1,4 @@
- package semi.controller;
+package semi.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;

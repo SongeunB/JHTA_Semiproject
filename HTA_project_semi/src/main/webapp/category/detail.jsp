@@ -46,12 +46,8 @@
 							<a href="${cp}/header/search?keyword=${vo.author}">${vo.author}</a>
 							<a href="${cp}/header/search?keyword=${vo.org_author}">${vo.org_author}</a>
 							지음</li>
-						<li>
-							<a href="${cp}/header/search?keyword=${vo.translator}">${vo.translator}</a>
-							옮김</li>
-						<li>
-							<a href="${cp}/header/search?keyword=${vo.publisher}">${vo.publisher}</a>
-							출판</li>
+						<li>${vo.translator} 옮김</li>
+						<li>${vo.publisher} 출판</li>
 						<li>${vo.ymd} 출간</li>
 					</ul>
 				</div>
@@ -65,7 +61,7 @@
 					<label for="item_count" style="width:100px;">수량</label>
 					<c:choose>
 						<c:when test="${vo.stock==0}">
-							<span style="color:red;"> 구매가능한 재고가 없습니다. </span>
+							<span style="color:red;"> 일시품절 </span>
 						</c:when>
 						<c:otherwise>
 							<input type="hidden" value="${vo.id_item}" name="id_item">
@@ -73,10 +69,16 @@
 							<span> (재고수량 ${vo.stock}) </span>
 							<br>
 							<div class="order_btn_wrap" class="flex-between">
-								<input type="button" value="장바구니 담기" class="order_btn" onclick="insert_cart()">
-								<input type="submit" value="바로주문" class="order_btn">
-								<a href="${cp}/goodsModify?id_item=${vo.id_item}" class="order_btn_a">
-								<input type="button" value="상품수정" class="order_btn"></a>
+								<c:choose>
+									<c:when test="${sessionScope.id_customer=='admin'}">
+										<a href="${cp}/goodsModify?id_item=${vo.id_item}" class="order_btn_a">
+										<input type="button" value="상품수정" class="order_btn"></a>
+									</c:when>
+									<c:otherwise>
+										<input type="button" value="장바구니 담기" class="order_btn" onclick="insert_cart()">
+										<input type="submit" value="바로주문" class="order_btn">
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<span id="cart_msg"> </span>
 						</c:otherwise>

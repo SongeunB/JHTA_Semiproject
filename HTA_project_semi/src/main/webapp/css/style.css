@@ -97,6 +97,10 @@ input, textarea {
 
 }
 
+#main-header #logo {
+	margin-right: 50px;
+}
+
 #main-header .search_wrap {
 	display: flex;
 	flex-wrap: wrap;
@@ -664,6 +668,12 @@ main {
 
 /***************detail***************/
 
+#detail_wrapper {
+	width: 100%;
+	background-color: #f6f8fa;
+
+	padding-top: 61px;
+}
 
 #detail_wrapper #detail_top {
 	height: 700px;
@@ -782,6 +792,13 @@ main {
 
 
 /***************장바구니***************/
+#cart_wrapper {
+	width: 100%;
+	background-color: #f6f8fa;
+
+	padding-top: 61px;
+}
+
 #cart_wrapper h1{
 	border-bottom:1px solid black;
 }
@@ -799,11 +816,11 @@ main {
 }
 
 #cart_wrapper #cart_list_wrap table th {
-  background-color: #F0F8FF;
+	background-color: #F0F8FF;
 }
 
 #cart_wrapper #cart_list_wrap table th, td {
-  border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
 }
 
 #cart_wrapper #cart_list_wrap .cart_list_tr {
@@ -815,14 +832,22 @@ main {
 	margin-right: 50px;
 }
 
-#cart_wrapper #cart_list_wrap .cart_list_tr .img_cover {
+#cart_wrapper #cart_list_wrap .cart_list_info_left .cart_img_cover {
 	width: 70px;
 	border: 0.5px solid gray; 
-	margin-top: 0px;
+	margin: 10px 0 10px 0;
 }
 
 #cart_wrapper #cart_list_wrap .cart_list_info {
 	vertical-align: middle;
+}
+
+#cart_wrapper #cart_list_wrap .cart_list_info .span_wrap {
+	text-align: left;
+}
+
+#cart_wrapper #cart_list_wrap .cart_list_info .span_wrap:hover {
+	text-decoration: underline;
 }
    
 #cart_wrapper #cart_list_wrap #table2 {
@@ -833,6 +858,170 @@ main {
 #cart_wrapper #cart_list_wrap #table2 th{
 	height: 50px;
 }
+
+#cart_wrapper #cart_list_wrap .order_btn_wrap {
+	    margin: 10px 0px 100px 300px;
+}
+
+#cart_wrapper #cart_list_wrap .order_btn {
+	width: 250px;
+}
+
+#cart_wrapper #cart_list_wrap .order_btn:first-child {
+	margin-left: 0px;
+	margin-right: 20px;
+}
+
+#cart_wrapper #cart_list_wrap .order_btn:last-child {
+	margin-right: 0px;
+}
+
+/***************관리자페이지***************/
+#admin_wrapper {
+	margin: 50px 0 50px 0;
+}
+
+#admin_wrapper .admin_wrap {
+	width: 70%;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+#admin_wrapper .admin_wrap .admin_box {
+	width: 350px;
+	height: 100px;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	background-color: #4254CA;
+	border-radius: 5px;
+	
+	box-shadow: 7px 6px 9px -3px rgba(0,0,0,0.55);
+	-webkit-box-shadow: 7px 6px 9px -3px rgba(0,0,0,0.55);
+	-moz-box-shadow: 7px 6px 9px -3px rgba(0,0,0,0.55);
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+#admin_wrapper .admin_wrap .admin_box:hover {
+	background-color: #132287;
+}
+
+#admin_wrapper .admin_wrap .admin_box .admin_icon {
+	width: 50px;
+	height: 40px;
+	margin-right: 10px;
+}
+
+#admin_wrapper .admin_wrap .admin_box span {
+	font-size: 30px;
+	font-weight: 700;
+}
+
+
+
+
+
+
+/***************매출조회***************/
+.sales_wrapper {
+	width: 100%;
+	height: 1000px;
+	background-color: #f6f8fa;
+
+	padding-top: 61px;
+}
+
+.sales_container {
+	width: 1080px;
+	margin: 0 auto;
+	align-items: flex-start;
+}
+
+.sales_wrapper .main_nav {
+	width: 200px;
+	border: solid 1px #dddddf;
+}
+
+.sales_wrapper .main_nav .main-category {
+	background-color: #ffffff;
+	transition: all 0.3s;
+	padding: 20px 22px 10px;
+}
+
+.sales_wrapper .main_nav .main-category h3 {
+	margin-bottom: 13px;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.sales_wrapper .main_nav .main-category-lists {
+	font-size: 14px;
+	margin-left: 20px;
+}
+
+.sales_wrapper .main_nav .main-category-lists li {
+	margin-bottom: 4px;
+}
+
+.sales_wrapper .main_nav .main-category-lists li:last-child {
+	margin-bottom: 0;
+}
+
+.sales_wrapper .main_wrap {
+	width: 760px;
+}
+
+.sales_wrapper .main_wrap h3 {
+	margin-bottom: 20px;
+}
+
+.sales_wrapper .main_wrap table {
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+.sales_wrapper .main_wrap table th, td {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+.sales_wrapper .main_wrap table tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+.sales_wrapper .main_wrap table th {
+	height: 40px;
+	
+	text-align: center;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	background-color: #CCE5FF;
+	color: black;
+}
+
+.sales_wrapper .main_wrap table th:first-child {
+	text-align: left;
+}
+
+.sales_wrapper .main_wrap table td {
+	height: 20px;
+}
+
+
+
+
+
 
 /************ banner 배너 *******************/
 

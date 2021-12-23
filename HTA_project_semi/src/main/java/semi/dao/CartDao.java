@@ -46,7 +46,8 @@ public class CartDao {
 		ResultSet rs=null;
 		try {
 			con=JdbcUtil.getCon();
-			String sql="select id_cart,c.id_item id_item,item_count,price,title,stock from cart c, books b where c.id_customer=? and c.id_item=b.id_item";
+			String sql="select id_cart,c.id_item id_item,item_count,price,title,stock from cart c, books b where c.id_customer=? and c.id_item=b.id_item "
+					+ "order by id_cart";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, id_customer);
 			rs=pstmt.executeQuery();

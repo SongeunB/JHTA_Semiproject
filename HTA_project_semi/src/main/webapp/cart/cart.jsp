@@ -7,21 +7,21 @@
 
 	var totalPrice=0;
 	function allCheck(chBox) {
-		var listCheck = document.getElementsByName("listCheck");
-		var check = chBox.checked;
+		let listCheck = document.getElementsByName("listCheck");
+		let check = chBox.checked;
 		totalPrice=parseInt(0);
 		if (check) {﻿
-			for (var i=0; i<listCheck.length; i++){
+			for (let i=0; i<listCheck.length; i++){
 				if(listCheck[i].type == "checkbox") {
 					listCheck[i].checked = true;
 					totalPrice=parseInt(totalPrice)+parseInt(listCheck[i].value);
 				}
 			}
 		} else {
-			for (var i=0; i<listCheck.length; i++) {
+			for (let i=0; i<listCheck.length; i++) {
 				if(listCheck[i].type == "checkbox"){
 					listCheck[i].checked = false;
-					totalPrice=parseInt(totalPrice)-parseInt(listCheck[i].value);
+					totalPrice=parseInt(0);
 				}
 			}
 		}
@@ -44,25 +44,36 @@
 	}
 	
 	function orderChd() {
-		var listCheck = document.getElementsByName("listCheck");
-		var listIdCart = document.getElementsByName("listIdCart");
-		for (var i=0; i<listCheck.length; i++){
+		let listCheck = document.getElementsByName("listCheck");
+		let listIdCart = document.getElementsByName("listIdCart");
+		let param="?id_cart=";
+		for (let i=0; i<listCheck.length; i++){
 			if(listCheck[i].checked) {
-				document.myForm.action="${cp}/order?id_cart="+listIdCart[i].value; 
-				document.myForm.method="post"; 
-				document.myForm.submit();
+				if(i<listCheck.length-1) {
+				param+=listIdCart[i].value+"@"; 
+				}else if(i==listCheck.length-1) {
+					param+=listIdCart[i].value;
+				}
 			}
 		}
+		document.myForm.action="${cp}/order"+param;
+		document.myForm.method="post"; 
+		document.myForm.submit();
 	}
 	
 	function orderAll() {
-		var listCheck = document.getElementsByName("listCheck");
-		var listIdCart = document.getElementsByName("listIdCart");
-		for (var i=0; i<listCheck.length; i++){
-			document.myForm.action="${cp}/order?id_cart="+listIdCart[i].value; 
-			document.myForm.method="post"; 
-			document.myForm.submit();
+		let listIdCart = document.getElementsByName("listIdCart");
+		let param="?id_cart=";
+		for (let i=0; i<listIdCart.length; i++){
+			if(i<listIdCart.length-1) {
+			param+=listIdCart[i].value+"@"; 
+			}else if(i==listIdCart.length-1) {
+				param+=listIdCart[i].value;
+			}
 		}
+		document.myForm.action="${cp}/order"+param;
+		document.myForm.method="post"; 
+		document.myForm.submit();
 	}
 </script>
 
@@ -91,12 +102,12 @@
 								<input type="checkbox" name="listCheck" 
 										value="${list_price}" onchange="calc_total(this)">
 								<span>${status.count}</span>
-								<img src="${cp}/img_cover/${vo.id_item}.jpg" class="img_cover"  style="margin-top:0;">
+								<img src="${cp}/img_cover/${vo.id_item}.jpg" class="cart_img_cover">
 							</div>
 							<div class="span_wrap">
-								<span>ISBN: &nbsp;</span>
-								<span class="idItemSpan">${vo.id_item}</span><br>
-								<a href="${cp}/detail?id_item=${vo.id_item}"><span>${vo.title}</span></a>
+								<a href="${cp}/detail?id_item=${vo.id_item}"><span>${vo.title}</span><br>
+								<span>(ISBN: </span>
+								<span class="idItemSpan">${vo.id_item})</span></a>
 							</div>
 						</div>
 					</td>
@@ -113,8 +124,6 @@
 							<input type="submit" value="변경">
 						</form>
 					</td>
-					<c:set var="total_price" value="0"/>
-					
 					<td><c:out value="${list_price}"/> 원</td>
 					<td>
 						<form action="${cp}/cartDelete">
@@ -144,8 +153,10 @@
 				</tr>
 			</table>
 			<div class="order_btn_wrap" class="flex-between">
-				<input type="submit" value="선택한 상품 주문하기" class="order_btn"  onclick="orderChd()">
-				<input type="submit" value="전체 상품 주문하기" class="order_btn"  onclick="orderAll()">
+				<form name="myForm">
+					<input type="submit" value="선택한 상품 주문하기" class="order_btn"  onclick="orderChd()">
+					<input type="submit" value="전체 상품 주문하기" class="order_btn"  onclick="orderAll()">
+				</form>
 			</div>
 		</div>	
 	</div>
