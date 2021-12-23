@@ -70,7 +70,9 @@ function removeCategory(e){
 				</c:choose>
 					<li><a href="${cp}/cart">장바구니</a></li>
 					<li><a href="${cp}/order">주문내역</a></li>
+					<c:if test="${sessionScope.id_customer=='admin'}">
 					<li><a href="${cp}/admin">관리자페이지</a></li>
+					</c:if>
 				</ul>
 		</div>
 		
