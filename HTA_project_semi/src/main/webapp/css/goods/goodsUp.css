@@ -14,11 +14,7 @@
     background-color: rgba( 255,255,255,0.9 );
     z-index: 98;
 }
-#logo
-{	  
-		height:100px;
-	  border-bottom: 2px solid #132287;
-}
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
 	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
