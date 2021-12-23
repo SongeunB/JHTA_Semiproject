@@ -20,7 +20,7 @@
 				<img src="${cp}/image/icons8-sales.png" class="admin_icon"/>
 				<span>매출관리</span>
 			</a>
-			<a href="button" onclick="${cp}/banner" class="admin_box">
+			<a href="${cp}/banner" class="admin_box">
 				<img src="${cp}/image/icons8-banner.png" class="admin_icon"/>
 				<span>배너관리</span>
 			</a>
