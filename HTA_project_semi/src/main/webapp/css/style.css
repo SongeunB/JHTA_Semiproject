@@ -1142,4 +1142,155 @@ main {
     	padding-top: 15px;
 	}
 
+/*******************order-manage 주문관리*****************/
+
+#orderManage-main{
+		width: 100%;
+		padding: 50px 0 50px;
+		background: #f0fcff;
+	}
+	.orderManage-left{
+		width: 180px;
+    	border: solid 1px #dddddf;
+    	border-radius: 20px;
+    	margin-top: 30px;
+    	height: 170px;
+    	background: #ffffff;
+    	position: sticky;
+    	top: 160px;
+    	padding: 10px;
+	}
+	.orderManage-menu{
+		height: 50px;
+		padding: 12px 10px 10px;
+		border-radius: 10px;
+		cursor: pointer;
+		font-size: 18px;
+	}
+	.orderManage-menu:hover{
+		color: #5f748e;
+		transition: all 0.3s;
+	}
+	#menu-visual{
+		background: url(${pageContext.request.contextPath}/image/menu_zone.png);
+		background-repeat: no-repeat;
+		background-position: 0 50px;
+		transition: all 0.5s;
+	}
+	#menu-visual h2{
+		color: #c5e2f6;
+    	border-bottom: solid 1px #c5e2f6;
+    	margin-bottom: 17px;
+	}
+	.orderManage-right{
+		width: 800px;
+    	float: left;
+    	border: solid 1px lightgray;
+    	border-radius: 30px;
+    	background: #fdfdfd;
+    	box-shadow: 0 0 20px 5px lightgrey;
+    	padding: 30px 70px 30px;
+	}
+	.orderManage-right h1{
+		color: #49689b;
+    	border-bottom: solid 1px #49689b;
+    	margin-bottom: 20px;
+	}
+	.orderManage-right .miniButton{
+		margin-left: 10px;
+		margin-top: 11px;
+		font-size: 19px;
+	}
+	.data-head{
+		width: 100%;
+		border-radius: 10px 10px 3px 5px;
+		background: #49689b;
+		color: #ffffff;
+		height: 28px;
+	}
+	.data-body{
+		width: 100%;
+		text-align: center;
+		/*border: solid 1px gray;*/
+	}
+	.data-body tr{
+		height: 30px;
+	}
+	.page-controller{
+		width: 100%;
+		background: #49689b;
+		color: #ffffff;
+		text-align: center;
+		border-radius: 5px 3px 10px 10px;
+		margin-bottom: 50px;
+		height: 26px;
+		position: relative;
+	}
+	.page-controller .page{
+		display: inline-block;
+		margin: 2px auto 0;
+		position: absolute;
+    	left: 50%;
+    	transform: translate(-50%, 0%);
+	}
+	.page-controller .page div{
+		display: inline-block;
+		width: 20px;
+		border-radius: 3px;
+		cursor: pointer;
+	}
+	.page-controller .rowCount{
+		float: right;
+    	margin-right: 10px;
+    	margin-top: 2px;
+    	font-size: 14px;
+	}
+	.real-row{
+		cursor: pointer;
+	}
+	.real-row:hover{
+		background: #f0fcff;
+	}
+	.hide-data{
+		display: none;
+		font-size: 14px;
+	}
+	.inner-table{
+		width:600px;
+		margin: 1px auto 2px;
+		background: #f4f4f4;
+	}
+	.data-img{
+		max-width: 60px;
+		max-height: 90px;
+		width: auto;
+		height: auto;
+		border: solid 1px lightgray;
+		border-radius: 2px;
+	}
+	.button-wrap{
+		text-align: center;
+	}
+	#area1 .bigButton{
+		display: inline-block;
+		margin: 20px 30px 3px;
+	}
+	.table-wrap{
+		overflow: auto;
+		max-height: 317px;
+	}
+	.table-wrap::-webkit-scrollbar{
+		width: 5px;
+	}
+	.table-wrap::-webkit-scrollbar-thumb {
+    	background-color: #c4cad4;
+    	border-radius: 5px;
+  	}
+  	.table-wrap::-webkit-scrollbar-track {
+    	background-color: #eaeaea;
+    	border-radius: 5px;
+  	}
+	#area_dummy{
+		display: none;
+	}
 

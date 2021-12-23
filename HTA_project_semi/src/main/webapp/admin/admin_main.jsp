@@ -10,7 +10,7 @@
 				<img src="${cp}/image/icons8-books.png" class="admin_icon"/>
 				<span>도서등록</span>
 			</a>
-			<a href="button" onclick="${cp}/OrderManage" class="admin_box">
+			<a href="${cp}/OrderManage" class="admin_box">
 				<img src="${cp}/image/icons8-order.png" class="admin_icon"/>
 				<span>주문관리</span>
 			</a>
