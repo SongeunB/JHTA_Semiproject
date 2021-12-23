@@ -3,26 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
 
-<script type="text/javascript">
-	function insert_cart() {
-		let xhr=new XMLHttpRequest();
-		xhr.onreadystatechange=function() {
-			if(xhr.readyState==4 && xhr.status==200) {
-				let data=xhr.responseText;
-				let cart=JSON.parse(data);
-				let span=document.getElementById("cart_msg");
-				if(cart.result==false) {
-					span.innerHTML="장바구니 담기 실패";
-				}else {
-					span.innerHTML="상품이 장바구니에 담겼습니다.";
-				}
-			}
-		};
-		let item_count=document.getElementById("item_count").value;
-		xhr.open('post','${cp}/cart?id=${sessionScope.id}&id_item=${vo.id_item}&item_count='+item_count,true);
-		xhr.send();
-	}
-</script>
+
 
 <main id="detail_wrapper" role="main">
 	<div id="detail_container" class="container">
@@ -57,7 +38,7 @@
 						<li><span style="width:100px;">배송비</span> 한권만 사도 무료배송</li>
 					</ul>
 				</div>
-				<form action="${cp}/cart" id="order_form">
+				<form action="${cp}/order" id="order_form">
 					<label for="item_count" style="width:100px;">수량</label>
 					<c:choose>
 						<c:when test="${vo.stock==0}">
@@ -65,7 +46,7 @@
 						</c:when>
 						<c:otherwise>
 							<input type="hidden" value="${vo.id_item}" name="id_item">
-							<input type="number" id="item_count" name="item_count" min="1" max="${vo.stock}" required="required">
+							<input type="number" id="item_count" name="item_count" min="1" max="${vo.stock}" value="1" required="required">
 							<span> (재고수량 ${vo.stock}) </span>
 							<br>
 							<div class="order_btn_wrap" class="flex-between">
@@ -98,8 +79,34 @@
 						<span class="info_genre">${vo.genre_detail}</span></a></p>
 			</div>
 			<img src="${cp}/image/detail_sample1.jpg" id="detail_info_img">
-		</div>
-		
-								
+		</div>				
 	</div>	
 </main>
+
+<script type="text/javascript">
+	function insert_cart() {
+		if(${empty sessionScope.id_customer}) {
+			alert("로그인이 필요합니다.");
+		}else {
+			let xhr=new XMLHttpRequest();
+			xhr.onreadystatechange=function() {
+				if(xhr.readyState==4 && xhr.status==200) {
+					let data=xhr.responseText;
+					let cart=JSON.parse(data);
+					let span=document.getElementById("cart_msg");
+					if(cart.result==false) {
+						span.innerHTML="장바구니 담기 실패";
+					}else {
+						span.innerHTML="상품이 장바구니에 담겼습니다.";
+					}
+				}
+			};
+			let item_count=document.getElementById("item_count").value;
+			let param="id=${sessionScope.id_customer}&id_item=${vo.id_item}&item_count="+item_count;
+			xhr.open('post','${cp}/cart',true);
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			xhr.send(param);
+		}	
+	}
+	
+</script>
