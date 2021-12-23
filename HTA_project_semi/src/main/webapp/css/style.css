@@ -62,9 +62,9 @@ input, textarea {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	align-content: stretch;
+	justify-content: space-around;
+	align-items: stretch;
+	align-content: center;
 }
 
 .flex-end {
