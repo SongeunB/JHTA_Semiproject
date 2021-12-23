@@ -17,12 +17,15 @@ import semi.dao.CustomersDao;
 @WebServlet("/deleteId")
 public class CustomerDeleteIdController extends HttpServlet{
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("header1", "header.jsp");
 		req.setAttribute("body", "/customersUpdate/deleteForm.jsp");
 		req.setAttribute("footer", "footer.jsp");
-		req.getRequestDispatcher("index.jsp").forward(req, resp);
-		
+		req.getRequestDispatcher("/index.jsp").forward(req, resp);
+	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("utf-8");
 		String id_customer=req.getParameter("id_customer");
 		String pwd=req.getParameter("pwd");
 		HttpSession session= req.getSession();
@@ -36,24 +39,15 @@ public class CustomerDeleteIdController extends HttpServlet{
 		if(b) {
 			int n=dao.delete(id_customer);
 			if(n>0) {
-					session.invalidate();
-				}else {
-					System.out.println("삭제 실패");
-				}
-			req.setAttribute("header1", "header.jsp");
-			req.setAttribute("body", "home.jsp");
-			req.setAttribute("footer", "footer.jsp");
-			req.setAttribute("category", new CategoryDao().getCategory());
-			req.setAttribute("newList", BooksDao.getInstance().newList(1));
-			req.setAttribute("bestList", BooksDao.getInstance().bestList());
-			req.setAttribute("banner", BannerDao.getInstance().getBanner());
-			req.getRequestDispatcher("index.jsp").forward(req, resp);
-		}else{
-			req.setAttribute("errMsg", "비밀번호가 틀립니다.");
-			req.setAttribute("header1", "header.jsp");
-			req.setAttribute("body", "/customersUpdate/deleteForm.jsp");
-			req.setAttribute("footer", "footer.jsp");
-			req.getRequestDispatcher("index.jsp").forward(req, resp);
-		}
+				req.setAttribute("result", "success");
+				session.invalidate();
+			}else {
+				req.setAttribute("result", "fail");
+			}
+			req.setAttribute("header1", "/header.jsp");
+			req.setAttribute("body", "/customersUpdate/deleteResult.jsp");
+			req.setAttribute("footer", "/footer.jsp");
+			req.getRequestDispatcher("/index.jsp").forward(req, resp);
+	}
 	}
 }

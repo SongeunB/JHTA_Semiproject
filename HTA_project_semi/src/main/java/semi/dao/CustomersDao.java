@@ -113,32 +113,7 @@ public class CustomersDao {
 			JdbcUtil.close(con,pstmt,rs);
 		}
 	}
-	
-	public int joinIdCheck(String id_customer){
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
-		int result = -1;
-		try {
-			con = JdbcUtil.getCon();
-			String sql = "select id_customer from customers where id_customer=?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, id_customer);
-			rs = pstmt.executeQuery();
-			if(rs.next()){	
-				result = 0;
-			}else{
-				result = 1;
-			}
-			System.out.println("���̵� �ߺ�üũ ��� : "+ result);
-		} catch (SQLException se) {
-			se.printStackTrace();
-		} finally {
-			JdbcUtil.close(con, pstmt, rs);
-		}
-		return result;
-	}
-	
+		
 	public String findId(String name, String email) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -200,4 +175,21 @@ public class CustomersDao {
 			JdbcUtil.close(con, pstmt, null);
 		}
 	}
+	public int idCheck(String id_customer) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		try {
+			con=JdbcUtil.getCon();
+			String sql="select * from customers where id_customer=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1,id_customer);
+			return pstmt.executeUpdate();
+		}catch(SQLException s) {
+			s.printStackTrace();
+			return -1;
+		}finally {
+			JdbcUtil.close(con, pstmt, null);
+		}
+	}
+	
 }

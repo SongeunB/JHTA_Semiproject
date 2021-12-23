@@ -18,18 +18,15 @@ public class CustomersUpdateFormController extends HttpServlet{
 		req.setAttribute("header1", "header.jsp");
 		req.setAttribute("body", "/customersUpdate/updateForm.jsp");
 		req.setAttribute("footer", "footer.jsp");
-		req.getRequestDispatcher("index.jsp").forward(req, resp);
 		
-		String id_customer=req.getParameter("id_customer");
+		String id_customer=(String)req.getSession().getAttribute("id_customer");
 		CustomersDao dao=CustomersDao.getInstance();
 		CustomersVo vo=dao.select(id_customer);
 		if(vo==null) {
 			req.setAttribute("result", "fail");
+			System.out.println(vo);
 		}else {
 			req.setAttribute("vo", vo);
-			req.setAttribute("header1", "header.jsp");
-			req.setAttribute("body", "/customersUpdate/updateForm.jsp");
-			req.setAttribute("footer", "footer.jsp");
 			req.getRequestDispatcher("index.jsp").forward(req, resp);
 		}
 	}
@@ -39,11 +36,17 @@ public class CustomersUpdateFormController extends HttpServlet{
 		String id_customer=req.getParameter("id_customer");
 		String pwd=req.getParameter("pwd");
 		String name=req.getParameter("name");
-		String email=req.getParameter("email");
-		String phone=req.getParameter("phone");
-		String address1=(String)req.getParameter("address1");
-		String address2=(String)req.getParameter("address2");
-		String address=address1+address2;
+		String email1=req.getParameter("email1");
+		String email2=req.getParameter("email2");
+		String email=email1+"@"+email2;
+		String phone1=req.getParameter("phone1");
+		String phone2=req.getParameter("phone2");
+		String phone3=req.getParameter("phone3");
+		String phone=phone1+"-"+phone2+"-"+phone3;
+		String addrNum=req.getParameter("addrNum");
+		String address1=req.getParameter("address1");
+		String address2=req.getParameter("address2");
+		String address=addrNum+"@"+address1+address2;
 		
 		CustomersVo vo=new CustomersVo(id_customer,pwd,name,email,phone,address);
 		int n=CustomersDao.getInstance().update(vo);

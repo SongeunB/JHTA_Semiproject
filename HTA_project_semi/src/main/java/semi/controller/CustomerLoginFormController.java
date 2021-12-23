@@ -27,6 +27,7 @@ public class CustomerLoginFormController extends HttpServlet {
 	}
 	@Override
 		protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("utf-8");
 		String id_customer=req.getParameter("id_customer");
 		String pwd=req.getParameter("pwd");
 		
