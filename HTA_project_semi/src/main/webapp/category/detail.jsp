@@ -61,10 +61,13 @@
 									</c:otherwise>
 								</c:choose>
 							</div>
-							<span id="cart_msg"> </span>
 						</c:otherwise>
 					</c:choose>
 				</form>
+				<div id="msg_wrap">
+					<span id="cart_msg">장바구니에 담겼습니다.</span>
+					<a href="${cp}/cart" id="move_cart"><i class="fas fa-shopping-cart"></i>이동</a>
+				</div>
 			</div>
 		</div>
 		<div id="detail_bottom">
@@ -78,7 +81,14 @@
 					<a href="${cp}/category?genre=${vo.genre}&genre_detail=${vo.genre_detail}">
 						<span class="info_genre">${vo.genre_detail}</span></a></p>
 			</div>
-			<img src="${cp}/image/detail_sample1.jpg" id="detail_info_img">
+			<c:choose>
+				<c:when test="${vo.id_item=='9788937434488'}">
+					<img src="${cp}/img_cover/${vo.id_item}_1.jpg" id="detail_info_img">
+				</c:when>
+				<c:otherwise>
+					<img src="${cp}/img_cover/9788970845371_1.jpg" id="detail_info_img">
+				</c:otherwise>
+			</c:choose>
 		</div>				
 	</div>	
 </main>
@@ -93,11 +103,12 @@
 				if(xhr.readyState==4 && xhr.status==200) {
 					let data=xhr.responseText;
 					let cart=JSON.parse(data);
+					let msg_wrap=document.getElementById("msg_wrap");
 					let span=document.getElementById("cart_msg");
 					if(cart.result==false) {
 						span.innerHTML="장바구니 담기 실패";
 					}else {
-						span.innerHTML="상품이 장바구니에 담겼습니다.";
+						msg_wrap.style="display: block;"
 					}
 				}
 			};

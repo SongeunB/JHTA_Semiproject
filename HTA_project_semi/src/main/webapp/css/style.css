@@ -697,7 +697,7 @@ main {
 
 #detail_wrapper #info_right {
 	width: 500px;
-	height: 600px;
+	height: 650px;
 }
 
 #detail_wrapper #info_right .info_right_wrap {
@@ -746,6 +746,11 @@ main {
 	color: red;
 	font-weight: 700;
 }
+
+#detail_wrapper #info_right #order_form {
+	margin-bottom: 10px;
+}
+
 #detail_wrapper #info_right #order_form label {
 	display: inline-block;
 }
@@ -768,10 +773,12 @@ main {
 	padding: 15px 30px;
 	text-align: center;
 	text-decoration: none;
+	font-weight:700;
 	display: inline-block;
 	font-size: 16px;
 	margin-top: 5px;
 	cursor: pointer;
+	border-radius: 5px;
 }
 
 .order_btn:hover {
@@ -780,6 +787,7 @@ main {
 
 .order_btn:first-child {
 	margin-left: 20px;
+	margin-right: 20px;
 }
 
 .order_btn:last-child {
@@ -795,6 +803,69 @@ main {
 	width: 1000px;
 	margin: 20px 0px 50px 50px;
 }
+
+
+#detail_wrapper #msg_wrap {
+	display: none;
+	width: 300px;
+    height: 50px;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: -30px;
+    padding-top: 5px;
+	
+	position: relative;
+	background-color: white;
+	border: 1px solid #132287;
+}
+
+#detail_wrapper #msg_wrap:after, #msg_wrap:before {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+#detail_wrapper #msg_wrap:after {
+	border-color: rgba(192, 230, 240, 0);
+	border-bottom-color: white;
+	border-width: 12px;
+	margin-left: -12px;
+}
+#detail_wrapper #msg_wrap:before {
+	border-color: rgba(19, 34, 135, 0);
+	border-bottom-color: #132287;
+	border-width: 13px;
+	margin-left: -13px;
+}
+
+
+#detail_wrapper #msg_wrap #move_cart {
+	width: 80px;
+	height: 40px;
+	padding: 10px;
+	background-color: #132287; 
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+#detail_wrapper #msg_wrap #move_cart i {
+	margin-right: 3px;
+}
+
+
+
+
+
 
 
 /***************장바구니***************/
