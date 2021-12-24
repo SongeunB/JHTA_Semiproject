@@ -617,18 +617,25 @@ function reloadTable(table_id, order_status){
 					}
 				}
 				let pageBox=document.getElementById(table_id+"_page").getElementsByTagName("div");
+				let pointNum=Math.floor((parseInt(jd.page_count)-1)/5); //1
 				for(let i=0;i<pageBox.length;i++){
 					if(i==0){
 						pageBox[i].style.color="#49689b";
 						pageBox[i].style.backgroundColor="#ffffff";
+						pageBox[i].textContent='1';
+						pageBox[i].attributes[0].value='1@'+table_id.substring(4,5)+"@"+table_id.charAt(table_id.length-1);
 					}else if(i>0 && i<(parseInt(jd.page_count))){
 						pageBox[i].style.color="#ffffff";
 						pageBox[i].style.backgroundColor="transparent";
 						pageBox[i].style.display="";
+						pageBox[i].textContent=i+1;
+						pageBox[i].attributes[0].value=(i+1)+'@'+table_id.substring(4,5)+"@"+table_id.charAt(table_id.length-1);
 					}else{
 						pageBox[i].style.color="#ffffff";
 						pageBox[i].style.backgroundColor="transparent";
 						pageBox[i].style.display="none";
+						pageBox[i].textContent=i+1;
+						pageBox[i].attributes[0].value=(i+1)+'@'+table_id.substring(4,5)+"@"+table_id.charAt(table_id.length-1);
 					}
 				}
 				movePageKey[parseInt(table_id.charAt(table_id.length-1))-1]="1@"+table_id.substring(4,5)+"@"+table_id.charAt(table_id.length-1);
