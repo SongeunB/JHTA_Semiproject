@@ -83,7 +83,7 @@
 				</div>
 				<div class="page-controller">
 					<div class="page" id="area1_table1_page">
-						<i class="fas fa-caret-left" style="width:16px; cursor:pointer;"></i>
+						<i class="fas fa-caret-left" style="width:16px; cursor:pointer;" onclick="sideButton('area1_table1',-1,0)"></i>
 						<div value="1@1@1" style="background:white; color:#49689b;" onclick="movePage(this)">1</div>
 						<input type="hidden" value="${area1_table1_pageCount}">
 						<c:forEach	var="i" begin="2" end="5">
@@ -96,7 +96,7 @@
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
-						<i class="fas fa-caret-right" style="width:16px; cursor:pointer;"></i>
+						<i class="fas fa-caret-right" style="width:16px; cursor:pointer;" onclick="sideButton('area1_table1',1,0)"></i>
 					</div>
 					<span class="rowCount">총 <span id="area1_table1_totalCnt">${area1_table1_count}</span>건 | 선택 <span id="area1_table1_choiceCnt">0</span>건</span>
 				</div>
@@ -173,7 +173,7 @@
 				</div>
 				<div class="page-controller">
 					<div class="page" id="area1_table2_page">
-						<i class="fas fa-caret-left" style="width:16px; cursor:pointer;"></i>
+						<i class="fas fa-caret-left" style="width:16px; cursor:pointer;" onclick="sideButton('area1_table2',-1,1)"></i>
 						<div value="1@1@2" style="background:white; color:#49689b;" onclick="movePage(this)">1</div>
 						<input type="hidden" value="${area1_table2_pageCount}">
 						<c:forEach	var="i" begin="2" end="5">
@@ -186,7 +186,7 @@
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
-						<i class="fas fa-caret-right" style="width:16px; cursor:pointer;"></i>
+						<i class="fas fa-caret-right" style="width:16px; cursor:pointer;" onclick="sideButton('area1_table2',1,1)"></i>
 					</div>
 					<span class="rowCount">총 <span id="area1_table2_totalCnt">${area1_table2_count}</span>건 | 선택 <span id="area1_table2_choiceCnt">0</span>건</span>
 				</div>
@@ -264,7 +264,7 @@
 				</div>
 				<div class="page-controller">
 					<div class="page" id="area2_table3_page">
-						<i class="fas fa-caret-left" style="width:16px; cursor:pointer;"></i>
+						<i class="fas fa-caret-left" style="width:16px; cursor:pointer;" onclick="sideButton('area2_table3',-1,2)"></i>
 						<div value="1@2@3" style="background:white; color:#49689b;" onclick="movePage(this)">1</div>
 						<input type="hidden" value="${area2_table3_pageCount}">
 						<c:forEach	var="i" begin="2" end="5">
@@ -277,7 +277,7 @@
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
-						<i class="fas fa-caret-right" style="width:16px; cursor:pointer;"></i>
+						<i class="fas fa-caret-right" style="width:16px; cursor:pointer;" onclick="sideButton('area2_table3',1,2)"></i>
 					</div>
 					<span class="rowCount">총 <span id="area2_table3_totalCnt">${area2_table3_count}</span>건 | 선택 <span id="area2_table3_choiceCnt">0</span>건</span>
 				</div>
@@ -451,6 +451,76 @@ function movePage(pageNum){
 			}
 		}
 		param="checkFunc=2&line="+pageKey;
+		xhr.open("post","${pageContext.request.contextPath}/OrderManage",true);
+		xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+		xhr.send(param);
+	}
+}
+function sideButton(table_id, num, key){
+	let tag=["@1@1","@1@2","@2@3"];
+	let pageZone=document.getElementById(table_id+"_page");
+	let maxNum=parseInt(pageZone.getElementsByTagName("input")[0].value);
+	let pageCode=movePageKey[key];
+	let currNum=parseInt(pageCode.split('@')[0]);
+	let nextNum=currNum+(num);
+	if(nextNum>0 && maxNum>1 && nextNum<=maxNum){
+		let xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4 && xhr.status==200){
+				let data=xhr.responseText;
+				let jd=JSON.parse(data);
+				if(jd.code=='fail'){
+					alert("조회실패");
+				}else{
+					let tbody=document.getElementById(jd.id_table).getElementsByTagName("tbody")[0];
+					tbody.innerHTML="";
+					let listLength=jd.list.length;
+					for(let i=0;i<listLength;i++){
+						tbody.appendChild(realRowCopy.cloneNode(true));
+						let rr=tbody.getElementsByClassName("real-row")[i].getElementsByTagName("td");
+						rr[0].getElementsByTagName("input")[0].value=jd.list[i].order_num;
+						rr[0].getElementsByTagName("input")[0].classList.replace("dummy_ck",jd.id_table+"_ck");
+						rr[0].getElementsByTagName("input")[0].checked=pmCheck(jd.id_table, jd.list[i].order_num);
+						rr[1].textContent=jd.list[i].order_num;
+						rr[2].textContent=jd.list[i].id_customer;
+						rr[3].textContent=jd.list[i].name_order;
+						rr[4].textContent=jd.list[i].total_price;
+						rr[5].textContent=jd.list[i].order_date;
+						tbody.appendChild(hideDataCopy.cloneNode(true));
+						let hd=tbody.getElementsByClassName("hide-data")[i];
+						hd.getElementsByClassName("phone")[0].textContent=jd.list[i].phone_order;
+						hd.getElementsByClassName("email")[0].textContent=jd.list[i].email_order;
+						hd.getElementsByClassName("address")[0].textContent=jd.list[i].address_order.split("@")[1];
+						hd.getElementsByClassName("address")[1].textContent=jd.list[i].address_order.split("@")[0];
+					}
+					if(listLength<10){
+						for(let i=0;i<10-listLength;i++){
+							tbody.appendChild(document.createElement("tr"));
+						}
+					}
+					let pageBox=document.getElementById(jd.id_table+"_page").getElementsByTagName("div");
+					let keyNum=Math.floor((nextNum-1)/5);
+					for(let i=0;i<pageBox.length;i++){
+						pageBox[i].style.color="#ffffff";
+						pageBox[i].style.backgroundColor="transparent";
+						pageBox[i].textContent=(keyNum*5)+(i+1);
+						pageBox[i].style.display="";
+						pageBox[i].attributes[0].value=((keyNum*5)+(i+1))+tag[key];
+						console.log(pageBox[i].attributes[0].value);
+					}
+					for(let i=0;i<pageBox.length;i++){
+						if((keyNum*5)+(i+1)==nextNum){
+							pageBox[i].style.color="#49689b";
+							pageBox[i].style.backgroundColor="#ffffff";
+						}else if((keyNum*5)+(i+1)>maxNum){
+							pageBox[i].style.display="none";
+						}
+					}
+					movePageKey[key]=nextNum+tag[key];
+				}
+			}
+		}
+		param="checkFunc=2&line="+nextNum+tag[key];
 		xhr.open("post","${pageContext.request.contextPath}/OrderManage",true);
 		xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
 		xhr.send(param);
