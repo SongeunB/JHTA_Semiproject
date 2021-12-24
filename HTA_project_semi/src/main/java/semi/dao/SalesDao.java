@@ -105,4 +105,35 @@ public class SalesDao {
 			JdbcUtil.close(con, pstmt, rs);
 		}
 	}
+	
+	public ArrayList<SalesDateVo> selectBest(String searchDate,String searchDate2) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=JdbcUtil.getCon();
+			String sql="select b.id_item, b.title title, b.price price, item_count, total_price "
+					+ "from books b join (select od.id_item id_item, sum(od.item_count) item_count,  sum(os.total_price) total_price "
+					+ "from orders os, order_detail od "
+					+ "where order_date>=? and order_date<? and os.order_num=od.order_num "
+					+ "GROUP BY od.id_item) on b.id_item=o.id_item ORDER BY item_count desc";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, searchDate);
+			pstmt.setString(2, searchDate2);
+			rs=pstmt.executeQuery();
+			ArrayList<SalesDateVo> list=new ArrayList<SalesDateVo>();
+			while(rs.next()) {
+				Date order_date=rs.getDate("order_date");
+				int item_price=rs.getInt("item_price");
+				int item_count=rs.getInt("item_count");
+				list.add(new SalesDateVo(order_date,item_price,item_count));
+			}
+			return list;
+		}catch(SQLException se) {
+			se.printStackTrace();
+			return null;
+		}finally {
+			JdbcUtil.close(con, pstmt, rs);
+		}
+	}
 }
