@@ -638,6 +638,7 @@ function reloadTable(table_id, order_status){
 						pageBox[i].attributes[0].value=(i+1)+'@'+table_id.substring(4,5)+"@"+table_id.charAt(table_id.length-1);
 					}
 				}
+				document.getElementById(table_id+"_page").getElementsByTagName("input")[0].value=jd.page_count;
 				movePageKey[parseInt(table_id.charAt(table_id.length-1))-1]="1@"+table_id.substring(4,5)+"@"+table_id.charAt(table_id.length-1);
 				document.getElementById(table_id+"_totalCnt").textContent=jd.count;
 				document.getElementById(table_id+"_choiceCnt").textContent="0";
