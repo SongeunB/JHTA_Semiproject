@@ -57,7 +57,9 @@
 									</c:when>
 									<c:otherwise>
 										<input type="button" value="장바구니 담기" class="order_btn" onclick="insert_cart()">
+										<a href="javascript:insert_order()">
 										<input type="submit" value="바로주문" class="order_btn">
+										</a>
 									</c:otherwise>
 								</c:choose>
 							</div>
@@ -120,4 +122,13 @@
 		}	
 	}
 	
+	function insert_order() {
+		let item_count=document.getElementById("item_count").value;
+	 	// let id = <%=(String)request.getSession().getAttribute("id_customer")%>;
+		if(item_count==0 || item_count==null) {
+			alert("수량을 입력하세요");
+			return;
+		}
+		location.href="${cp}/order?id=${sessionScope.id_customer}&id_item=${vo.id_item}&title=${vo.title}&item_price=${vo.price}&item_count="+item_count;	
+	}
 </script>

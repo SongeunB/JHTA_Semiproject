@@ -50,13 +50,13 @@
 		for (let i=0; i<listCheck.length; i++){
 			if(listCheck[i].checked) {
 				if(i<listCheck.length-1) {
-				param+=listIdCart[i].value+"@"; 
+				param+=listIdCart[i].value+","; 
 				}else if(i==listCheck.length-1) {
 					param+=listIdCart[i].value;
 				}
 			}
 		}
-		document.myForm.action="${cp}/order"+param;
+		document.myForm.action="${cp}/order"+param+"&id_customer=${sessionScope.id_customer}";
 		document.myForm.method="post"; 
 		document.myForm.submit();
 	}
@@ -66,12 +66,12 @@
 		let param="?id_cart=";
 		for (let i=0; i<listIdCart.length; i++){
 			if(i<listIdCart.length-1) {
-			param+=listIdCart[i].value+"@"; 
+			param+=listIdCart[i].value+","; 
 			}else if(i==listIdCart.length-1) {
 				param+=listIdCart[i].value;
 			}
 		}
-		document.myForm.action="${cp}/order"+param;
+		document.myForm.action="${cp}/order"+param+"&id_customer=${sessionScope.id_customer}";
 		document.myForm.method="post"; 
 		document.myForm.submit();
 	}
