@@ -14,15 +14,13 @@
 			<div class="contents">
 <c:choose>
 	<c:when test="${requestScope.result=='success' }">
-		<div id="imgbox" style="text-align:center; width:80%; height:">
-		<img src="<%=request.getContextPath() %>/image/logo1.png">
-		</div>
-		<h1 style="text-align:center;">환영합니다!</h1><br>
-		<div id="wrapper" style="background-color:grey;">
-		<br>
-		<p style="text-align:center">아이디 : ${id_customer } </p> <br>
-		<p style="text-align:center">이름 : ${name } </p> <br>
-		<p style="text-align:center">이메일 : ${email } </p> <br>
+		<div id="box" style="text-align:center; top:300px;">
+		<img src="<%=request.getContextPath() %>/image/logo.png">
+		<br><br><br><br><br>
+		<h1 style="font-size:2em;">${name }님 환영합니다!</h1><br>
+		<br><br><br><br>
+		<p style="color:grey;">가입하신 아이디 : ${id_customer } </p> <br>
+		<p style="color:grey;">가입하신 이메일 : ${email } </p> <br>
 		</div>
 	</c:when>
 	<c:otherwise>
@@ -33,6 +31,8 @@
 </div>
 <div style="text-align:center;">
 <a href="${pageContext.request.contextPath }/loginForm">로그인</a> | <a href="${pageContext.request.contextPath }/home">메인페이지로</a>
+<br><br><br><br>
+
 </div>
 </body>
 </html>

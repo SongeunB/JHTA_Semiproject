@@ -47,7 +47,7 @@
 								</tr>
 							</table>
 							<br><div>${requestScope.findResult }</div>
-							<input type="submit" value="찾기">
+							<input type="submit" value="비밀번호 찾기">
 							</form>
 					</div>
 				</div>

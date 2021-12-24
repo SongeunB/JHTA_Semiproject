@@ -220,12 +220,12 @@ function email_change(){
 						</table>
 						<input type="submit" value="수정">	
 					</form>
+						<div style="text-align:right; font-size:0.5em; color:grey;">
+						<a href="${pageContext.request.contextPath}/deleteId" style="text-align:right;">회원탈퇴</a>
+						</div>	
 					</div>
+				</div>				
 			</div>
-			</div>
-			<div style="text-align:right">
-					<a href="${pageContext.request.contextPath}/deleteId">회원탈퇴</a>
-					</div>	
 		</div>
 </body>
 <script type="text/javascript">
