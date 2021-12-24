@@ -16,6 +16,7 @@
 					<li><a href="${cp}/searchD">일자별 조회</a></li>
 					<li><a href="${cp}/searchM">월별 조회</a></li>
 					<li><a href="${cp}/searchR" style="border-bottom:1px solid black;">기간별 조회</a></li>
+					<li><a href="${cp}/searchB">상품별 월누적 매출</a></li>
 				</ul>
 			</div>
 		</div>

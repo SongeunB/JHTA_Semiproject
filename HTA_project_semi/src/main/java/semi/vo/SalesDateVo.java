@@ -5,28 +5,22 @@ import java.sql.Date;
 public class SalesDateVo {
 	private Date order_date;
 	private String id_item;
+	private String title;
 	private int item_price;
 	private int item_count;
 	private int total_price;
 	
-	public SalesDateVo(Date order_date, String id_item, int item_price, int item_count) {
+	
+	public SalesDateVo(Date order_date, String id_item, String title, int item_price, int item_count, int total_price) {
 		super();
 		this.order_date = order_date;
 		this.id_item = id_item;
+		this.title = title;
 		this.item_price = item_price;
 		this.item_count = item_count;
-		this.total_price = item_price*item_count;
+		this.total_price = total_price;
 	}
 	
-	public SalesDateVo(Date order_date, int item_price, int item_count) {
-		super();
-		this.order_date = order_date;
-		this.item_price = item_price;
-		this.item_count = item_count;
-		this.total_price = item_price*item_count;
-	}
-
-
 	public Date getOrder_date() {
 		return order_date;
 	}
@@ -41,6 +35,14 @@ public class SalesDateVo {
 
 	public void setId_item(String id_item) {
 		this.id_item = id_item;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public int getItem_price() {
