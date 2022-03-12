@@ -70,4 +70,4 @@
 
 ## 🌈 Members
 
-| [백송은](https://github.com/SongeunB) | [백승한]() | [안성진]() | [하지은](https://github.com/noixhwb) | [한상훈]() |
+| [백송은](https://github.com/SongeunB) | 김현주 | [이건우]() | 장민수 | [조승현]() |
