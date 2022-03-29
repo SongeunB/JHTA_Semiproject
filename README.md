@@ -44,7 +44,7 @@
 
 | 🍓 주문처리 기능 | 🌟 매출관리 기능 |
 | :--: | :--: |
-| <img src="https://user-images.githubusercontent.com/84698168/160659102-9e3e499c-cdd0-442f-ab92-e7b762904efc.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/160661323-2f746a94-17da-4191-9594-10a0b4cfa966.gif" width=500px> |
+| <img src="https://user-images.githubusercontent.com/84698168/160659102-9e3e499c-cdd0-442f-ab92-e7b762904efc.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/160661568-677eabad-1ce0-4d86-a9d9-089b4cff8669.gif" width=500px> |
 </br>
 </br>
 
@@ -60,10 +60,10 @@
 
 | 🌟 매출관리 - 월별 조회 | 🌟 매출관리- 상품별 조회 |
 | :--: | :--: |
-| <img src="https://user-images.githubusercontent.com/84698168/160661323-2f746a94-17da-4191-9594-10a0b4cfa966.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/160660812-6247879b-deab-430d-9989-e65039947895.gif" width=500px> |
+| <img src="https://user-images.githubusercontent.com/84698168/160661568-677eabad-1ce0-4d86-a9d9-089b4cff8669.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/160660812-6247879b-deab-430d-9989-e65039947895.gif" width=500px> |
 
 ---
 
 ## 🌈 Members
 
-| [백송은](https://github.com/SongeunB) | 김현주 | [이건우]() | 장민수 | [조승현]() |
+| [백송은](https://github.com/SongeunB) | 김현주 | [이건우](https://github.com/u1b85) | 장민수 | [조승현](https://github.com/Chosh0840) |
