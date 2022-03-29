@@ -30,41 +30,37 @@
 
 ## 🚀 전체 주요 기능
 
-| 👍 회원 기능 | 🌟 메인 페이지 |
+| 👍 회원 기능 | 🔎 검색 기능 |
 | :--: | :--: |
-| <img src="https://user-images.githubusercontent.com/72147069/156172268-809b250a-f768-4634-92b9-989a83952e33.PNG" width=500px> | <img src="https://user-images.githubusercontent.com/72147069/156172238-629f62b0-ac3a-419c-8be0-a048bd0f935b.PNG" width=500px> |
+| <img src="https://user-images.githubusercontent.com/84698168/160656952-60d77d66-7065-4a36-af99-72c9d5232d15.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/160657372-23de9a2c-16f0-4198-b5e5-1e3e74dd6a64.gif" width=500px> |
 
 | 🙌 상세 페이지 | 👩‍💻 장바구니 기능 |
 | :--: | :--: |
-| <img src="https://user-images.githubusercontent.com/84698168/158005709-0a08dffa-55a9-4397-9550-151eae913c3e.JPG" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/158005727-78f5bac2-b92b-4c1a-bdc7-27a5c3f60e4a.JPG" width=500px> |
+| <img src="https://user-images.githubusercontent.com/84698168/160658086-44181d70-30b2-49fb-a3da-20bfe7969a36.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/160658300-e46e60ce-5df8-49fd-b65d-caa1b86c21f7.gif" width=500px> |
 
-| 👯 주문 및 주문확인 기능 | 📅 도서 등록 기능 |
+| 👯 배너 변경 기능 | 📅 도서 등록 기능 |
 | :--: | :--: |
-| <img src="https://user-images.githubusercontent.com/72147069/156175131-2669f1fc-73a6-4e2e-a916-277654e5186d.PNG" width=500px> | <img src="https://user-images.githubusercontent.com/72147069/156180292-c61fb608-a99f-46b1-91f4-1159d2f21a60.PNG" width=500px> |
+| <img src="https://user-images.githubusercontent.com/84698168/160658718-2e5a661c-c21d-494e-b058-a3f99ff74042.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/160658830-8d9a37dc-16cd-4249-a386-9c02ad92177c.gif" width=500px> |
 
-| 🍓 주문처리 기능 | 🔎 매출관리 기능 |
+| 🍓 주문처리 기능 | 🌟 매출관리 기능 |
 | :--: | :--: |
-| <img src="https://user-images.githubusercontent.com/72147069/156175150-a6843376-c72c-449b-9d90-b71150ffc636.PNG" width=500px> | <img src="https://user-images.githubusercontent.com/72147069/156175236-915984a9-19e6-4113-b089-f18a36956795.PNG" width=500px> |
+| <img src="https://user-images.githubusercontent.com/84698168/160659102-9e3e499c-cdd0-442f-ab92-e7b762904efc.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/160659276-f9a99582-e08f-4f0c-9f4e-5c1f301145bf.gif" width=500px> |
 </br>
 </br>
 
 ## 🙋 개인담당 기능 상세보기
 
-| :balloon: 메인페이지 | 📅 시간표 생성 |
+| :balloon: 상세 페이지 | :balloon: 상세 페이지에서 장바구니로 이동 |
 | :--: | :--: |
-| <img src="https://user-images.githubusercontent.com/84698168/156184068-6f9d70af-4d74-43f0-89d1-7ebe64aa1043.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/156184483-03db9b04-26d5-4caa-a557-0b9cbd523ef4.gif" width=500px> |
+| <img src="https://user-images.githubusercontent.com/84698168/160658086-44181d70-30b2-49fb-a3da-20bfe7969a36.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/160660102-f560084f-e231-4567-9e3c-e0a8641bb267.gif" width=500px> |
 
-| 📅 시간표 캡쳐 | 📅 시간표 저장&불러오기 |
+| 🙌 장바구니 기능 | 🙌 장바구니 수정,삭제,선택 |
 | :--: | :--: |
-| <img src="https://user-images.githubusercontent.com/84698168/156190596-4756a03e-cf33-4ee5-91e5-bbc73f123cad.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/156190096-98bbdc6f-3188-4894-8b7c-7c170ce6cf73.gif" width=500px> |
+| <img src="https://user-images.githubusercontent.com/84698168/160658300-e46e60ce-5df8-49fd-b65d-caa1b86c21f7.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/160660426-57dc868f-528e-4d22-b9df-d4459545df80.gif" width=500px> |
 
-| 📝 강의평가 보기&작성 | 📝 내 강의평가 수정&삭제 |
+| 🌟 매출관리 - 월별 조회 | 🌟 매출관리- 상품별 조회 |
 | :--: | :--: |
-| <img src="https://user-images.githubusercontent.com/84698168/157881611-f2fc6c4a-7b7a-417b-a961-d375218793fb.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/157881767-06180ee6-e342-4b8f-8d63-1425168e363e.gif" width=500px> |
-
-| 💯 학점계산하기 | 💯 저장한 정보 불러오기 |
-| :--: | :--: |
-| <img src="https://user-images.githubusercontent.com/84698168/157882963-eb98c611-f7eb-4fa0-a995-95a5bd45087d.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/157882979-af5232de-e3a9-4dd6-9306-de40912ceca3.gif" width=500px> |
+| <img src="https://user-images.githubusercontent.com/84698168/160659276-f9a99582-e08f-4f0c-9f4e-5c1f301145bf.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/160660812-6247879b-deab-430d-9989-e65039947895.gif" width=500px> |
 
 ---
 
