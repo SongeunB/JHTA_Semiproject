@@ -44,7 +44,7 @@
 
 | 🍓 주문처리 기능 | 🌟 매출관리 기능 |
 | :--: | :--: |
-| <img src="https://user-images.githubusercontent.com/84698168/160659102-9e3e499c-cdd0-442f-ab92-e7b762904efc.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/160659276-f9a99582-e08f-4f0c-9f4e-5c1f301145bf.gif" width=500px> |
+| <img src="https://user-images.githubusercontent.com/84698168/160659102-9e3e499c-cdd0-442f-ab92-e7b762904efc.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/160661323-2f746a94-17da-4191-9594-10a0b4cfa966.gif" width=500px> |
 </br>
 </br>
 
@@ -60,7 +60,7 @@
 
 | 🌟 매출관리 - 월별 조회 | 🌟 매출관리- 상품별 조회 |
 | :--: | :--: |
-| <img src="https://user-images.githubusercontent.com/84698168/160659276-f9a99582-e08f-4f0c-9f4e-5c1f301145bf.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/160660812-6247879b-deab-430d-9989-e65039947895.gif" width=500px> |
+| <img src="https://user-images.githubusercontent.com/84698168/160661323-2f746a94-17da-4191-9594-10a0b4cfa966.gif" width=500px> | <img src="https://user-images.githubusercontent.com/84698168/160660812-6247879b-deab-430d-9989-e65039947895.gif" width=500px> |
 
 ---
 
